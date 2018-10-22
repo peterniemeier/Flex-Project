@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Route} from 'react-router-dom';
 import Greeting from './components/greeting/greeting_container';
 import Map from './components/maps/map';
 
@@ -7,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
       <Greeting />
-      <Map />
+      <Route exact path='/' component={Map}/>
       </div>
     );
   }

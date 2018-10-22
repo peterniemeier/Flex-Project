@@ -1,5 +1,6 @@
 import React from 'react';
 import MarkerManager from './marker_manager';
+import './maps.css';
 
 const google = window.google;
 
@@ -22,7 +23,7 @@ class Map extends React.Component {
     }
 
     render() {
-        return <div id='map'></div>;
+        return <div className='big-map' id='map'></div>;
     }
 }
 

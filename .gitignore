@@ -32,6 +32,7 @@ bundle.js.map
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+api_key.js
 
 *.gem
 Gemfile.lock

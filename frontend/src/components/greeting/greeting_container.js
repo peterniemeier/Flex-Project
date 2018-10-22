@@ -1,5 +1,3 @@
-// frontend/src/components/greeting/greeting_container.js
-
 import { connect } from 'react-redux';
 
 import { logoutUser } from '../../util/session_api_util';

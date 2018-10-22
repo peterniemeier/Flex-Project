@@ -3,7 +3,7 @@ import {RECEIVE_TOILETS,
         REMOVE_TOILET} from '../actions/toilet_action';
 
 
-const toilerReducers = (state = {}, action) => {
+const toiletReducers = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
       case RECEIVE_TOILETS:
@@ -17,3 +17,6 @@ const toilerReducers = (state = {}, action) => {
         return state;
     }
 }
+
+
+export default toiletReducers; 

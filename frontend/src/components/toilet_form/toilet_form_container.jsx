@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ToiletForm from './toilet_form';
-import {createToilet} from '../../actions/toilet_actions';
+import {createToilet} from '../../util/toilet_api_util';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     lat: new URLSearchParams(location.search).get('lat'),
     lng: new URLSearchParams(location.search).get('lng'),
     title: '',
-    creator_id: state.entities.session.id,
+    creator_id: state.session.id,
     formType: 'Add Toilet'
   }
 }

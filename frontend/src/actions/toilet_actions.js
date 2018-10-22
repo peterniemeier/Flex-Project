@@ -19,9 +19,9 @@ const receiveToilet = toilet => {
 }
 
 
-const removeToiler = id => {
+const removeToilet = id => {
   return {
     type: 'REMOVE_TOILET',
-    id 
+    id
   }
 }

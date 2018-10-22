@@ -2,3 +2,12 @@
     height: 600px;
     width: 70%;
 }
+
+.all-content {
+    display: flex;
+}
+
+.toilet-index {
+    display: flex;
+    flex-direction: column;
+}

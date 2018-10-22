@@ -13,6 +13,10 @@ class MainPage extends React.Component {
                 <div className='big-map'>
                     <Map />
                 </div>
+                <div className='toilet-index'>
+                    <button>Create Toilet at my location</button>
+                    <button>Create button at clicked location</button>
+                </div>
             </div>
         );
     }

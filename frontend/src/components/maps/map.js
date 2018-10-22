@@ -20,6 +20,12 @@ class Map extends React.Component {
             mapOptions);
 
         this.markerManager = new MarkerManager(this.map)
+        this.map.addListener('click', this.handleMapClick.bind(this));
+    }
+
+    handleMapClick(event) {
+        console.log(event.latLng);
+        this.markerManager.createMarker(event.latLng);
     }
 
     render() {

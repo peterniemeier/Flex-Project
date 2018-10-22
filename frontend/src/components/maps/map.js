@@ -23,7 +23,7 @@ class Map extends React.Component {
     }
 
     render() {
-        return <div className='big-map' id='map'></div>;
+        return <div className='map' id='map'></div>;
     }
 }
 

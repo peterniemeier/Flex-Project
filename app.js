@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
-const posts = require('./routes/api/posts');
 const passport = require('passport');
 require('./config/passport');
 const port = process.env.PORT || 5000;

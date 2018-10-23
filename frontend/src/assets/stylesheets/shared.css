@@ -2,7 +2,7 @@
     padding: 10px 10px;
     border-radius: 4px;
     box-shadow: 1px 1px 3px gray;
-    color: #5A5956;
+    color: black;
     margin: 4px;
 }
 
@@ -12,13 +12,46 @@
 }
 
 .btn-primary {
-    background-color: #74DEFA;
+    background-color: #34495E;
+    border: 1px solid #85929E;
 }
 
 .btn-secondary {
-    background-color: #83F673;
+    background-color: #AAB7B8;
+    border: 1px solid #85929E;
 }
 
 .btn-submit {
-    background-color: #FEE472;
+    background-color: #CFCDC5;
+    border: 1px solid #85929E;
 }
+
+.btn-primary:hover {
+    background-color: rgb(57, 66, 75);
+    border: 1px solid #85929E;
+}
+
+.btn-secondary:hover {
+    background-color: rgb(125, 139, 140);
+    border: 1px solid #85929E;
+}
+
+.btn-submit:hover {
+    background-color: rgb(150, 149, 145);
+    border: 1px solid #85929E;
+}
+
+.link-style {
+    color: black;
+    text-decoration: none;
+}
+
+.link-style:hover {
+    color: #D0D3D4;
+    cursor: pointer;
+}
+
+body {
+    background: #F4F6F6;
+}
+

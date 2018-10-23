@@ -9,7 +9,6 @@ mongoose
   .catch(err => console.log(err));
 const port = process.env.PORT || 5000;
 const users = require('./routes/api/users');
-const posts = require('./routes/api/posts');
 const passport = require('passport');
 require('./config/passport');
 

@@ -11,7 +11,7 @@ class ToiletCreator extends React.Component {
 
         this.state = {
             currentAddress: '',
-            toiletAddress: '',
+            toiletAddress: 'click the map!',
         }
     }
 

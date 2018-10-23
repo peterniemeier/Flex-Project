@@ -23,7 +23,7 @@ export default class MarkerManager {
         return marker
     }
 
-    createMarkers(positions) {
+    createMarkers(toilets) {
         const icon = {
             url: "https://image.flaticon.com/icons/svg/1175/1175936.svg", 
             scaledSize: new google.maps.Size(20, 20),
@@ -31,9 +31,12 @@ export default class MarkerManager {
         };
 
         const markers = this.markers;
-        positions.forEach(position => {
+        toilets.forEach(toilet => {
             const marker = new google.maps.Marker({
-                position,
+                position: {
+                    lat: toilet.lat,
+                    lng: toilet.lng,
+                },
                 map: this.map,
                 icon,
             });

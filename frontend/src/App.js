@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
+import {Route} from 'react-router-dom';
 import Greeting from './components/greeting/greeting_container';
-// import Test from './components/test';
-=======
-import logo from './logo.svg';
-import './App.css';
-import greeting from './greeting/greeting_container';
->>>>>>> 46230106a662dc8206d87983ada52e25768cc3da
+import MainPage from './components/main_page/main_page';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
       <Greeting />
-        
+      <Route exact path='/' component={MainPage}/>
       </div>
     );
   }

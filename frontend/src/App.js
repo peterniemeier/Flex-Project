@@ -10,9 +10,8 @@ class App extends Component {
     return (
       <div className="App">
       <NavBar />
-      <Greeting />
       <Route exact path='/' component={MainPage}/>
-      <Route exact path='toilets/create' component={ToiletFormContainer} />
+      <Route exact path='/toilets/create' component={ToiletFormContainer} />
       <Route exact path='/' component={MainPage}/>
       </div>
     );

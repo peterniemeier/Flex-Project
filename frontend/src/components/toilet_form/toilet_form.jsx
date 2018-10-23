@@ -29,6 +29,7 @@ class ToiletForm extends React.Component {
   render() {
     return (
       <div>
+        <h1>Hi</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

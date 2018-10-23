@@ -1,19 +1,16 @@
 import { connect } from 'react-redux';
-
 import { logoutUser } from '../../util/session_api_util';
 import Greeting from './greeting';
 
-const mapStateToProps = ({ session }) => {
+const msp = ({ session }) => {
   return {
     currentUser: session
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mdp = dispatch => ({
   logout: () => dispatch(logoutUser())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Greeting);
+export default connect(msp, mdp)(Greeting);
+

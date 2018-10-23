@@ -1,4 +1,4 @@
-// import * as ToiletUtilAPI from './'
+
 
 export const RECEIVE_TOILETS = 'RECEIVE_TOILETS';
 export const RECEIVE_TOILET = 'RECEIVE_TOILET';

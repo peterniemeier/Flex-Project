@@ -55,6 +55,9 @@ class Map extends React.Component {
             lat: event.latLng.lat(),
             lng: event.latLng.lng(),
         });
+        document
+          .getElementById("toilet-address")
+          .classList.remove("error");
     }
 
     render() {

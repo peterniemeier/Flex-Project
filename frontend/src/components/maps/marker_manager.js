@@ -4,6 +4,14 @@ export default class MarkerManager {
     constructor(map) {
         this.map = map;
         this.markers = [];
+        
+        const toilets = [
+            {
+                lat: 37.76514693935538,
+                lng: -122.43948438110351
+            }
+        ]
+        this.createMarkers(toilets);
     }
 
     createMarker(position) {
@@ -39,7 +47,14 @@ export default class MarkerManager {
                 },
                 map: this.map,
                 icon,
+                title: toilet.title,
             });
+
+            marker.addListener('click', () => {
+                this.map.setZoom(17);
+                this.map.setCenter(marker.getPosition());
+
+            })
 
             markers.push(marker);
         });
@@ -52,3 +67,4 @@ export default class MarkerManager {
         }
     }
 }
+

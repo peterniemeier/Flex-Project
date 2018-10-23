@@ -40,7 +40,11 @@ class ToiletCreator extends React.Component {
     }
 
     sendToiletLocation(event) {
-        this.props.history.push('/toilets/create')
+        if (this.props.toiletPos) {
+            this.props.history.push('/toilets/create')
+        } else {
+            document.getElementById('toilet-address').classList.add('error');
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -68,7 +72,7 @@ class ToiletCreator extends React.Component {
                     <button className='btn btn-secondary'
                         onClick={this.sendToiletLocation.bind(this)}>
                         Create toilet at clicked location</button>
-                    <p>{this.state.toiletAddress}</p>
+                    <p id='toilet-address'>{this.state.toiletAddress}</p>
                 </div>
             </div>
         )

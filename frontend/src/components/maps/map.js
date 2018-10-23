@@ -1,13 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import MarkerManager from './marker_manager';
 import './maps.css';
+import { receiveToiletPos } from '../../actions/map_actions';
 
 const google = window.google;
 
 class Map extends React.Component {
     constructor(props) {
         super(props)
-
+    
     }
 
     componentDidMount() {
@@ -24,8 +27,9 @@ class Map extends React.Component {
     }
 
     handleMapClick(event) {
-        console.log(event.latLng);
+        this.markerManager.removeLastMarker();
         this.markerManager.createMarker(event.latLng);
+        this.props.receiveToiletPos(event.latLng);
     }
 
     render() {
@@ -33,4 +37,8 @@ class Map extends React.Component {
     }
 }
 
-export default Map;
+const mapDispatchToProps = dispatch => ({
+    receiveToiletPos: pos => dispatch(receiveToiletPos(pos))
+})
+
+export default connect(null, mapDispatchToProps)(Map);

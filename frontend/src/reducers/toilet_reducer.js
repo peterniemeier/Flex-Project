@@ -1,6 +1,6 @@
 import {RECEIVE_TOILETS,
         RECEIVE_TOILET,
-        REMOVE_TOILET} from '../actions/toilet_action';
+        REMOVE_TOILET} from '../actions/toilet_actions';
 
 
 const toiletReducers = (state = {}, action) => {
@@ -9,7 +9,7 @@ const toiletReducers = (state = {}, action) => {
       case RECEIVE_TOILETS:
         return action.toilets;
       case RECEIVE_TOILET:
-        return merge({}, {[action.toilet.id]: action.toilet})
+        return Object.assign({}, {[action.toilet.id]: action.toilet})
       case REMOVE_TOILET:
         delete state[action.toilet.id]
         return state;

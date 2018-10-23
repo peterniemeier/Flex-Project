@@ -8,7 +8,9 @@ const store = configureStore({});
 window.dispatch = store.dispatch;
 window.getState = store.getState;
 
-ReactDOM.render(<Root store={store} />, document.getElementById('root'));
+document.addEventListener('DOMContentLoaded', () => {
+    ReactDOM.render(<Root store={store} />, document.getElementById('root'));
+})
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

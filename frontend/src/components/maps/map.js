@@ -63,11 +63,11 @@ class Map extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    // toilets: state.entities.toilets,
+    toilets: state.entities.toilets,
 });
 
 const mapDispatchToProps = dispatch => ({
     receiveToiletPos: pos => dispatch(receiveToiletPos(pos))
 })
 
-export default connect(null, mapDispatchToProps)(Map);
+export default connect(mapStateToProps, mapDispatchToProps)(Map);

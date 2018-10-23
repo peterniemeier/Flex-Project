@@ -21,13 +21,14 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+// import "./index.css";
 import jwt_decode from "jwt-decode";
 import * as APIUtil from "./util/session_api_util";
 //Components
 import configureStore from "./store/store";
-import App from "./App.jsx";
-import registerServiceWorker from "./registerServiceWorker";
+// import App from "./App.js";
+import Root from "./root.js";
+import * as serviceWorker from "./serviceWorker.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store = configureStore();
@@ -50,6 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   const root = document.getElementById("root");
-  ReactDOM.render(<App store={store} />, root);
-  registerServiceWorker();
+  ReactDOM.render(<Root store={store} />, root);
+  serviceWorker.unregister();
 });

@@ -8,14 +8,13 @@ const keys = require('../../config/keys');
 const validateRegistrationInput = require('../../validations/register');
 const validateLoginInput = require('../../validations/login');
 
-
-router.get('/current', passport.authenticate('jsonwebtoken', {session:false}, (req, res) => {
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({
     id: req.user.id,
-    username: req.user.username,
+    name: req.user.username,
     email: req.user.email
   });
-}));
+});
 
 router.post('/register', (req,res) => {
 

@@ -5,7 +5,7 @@ const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
 const passport = require('passport');
-require('./config/passport');
+require('./config/passport')(passport);
 const port = process.env.PORT || 5000;
 
 

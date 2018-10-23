@@ -3,6 +3,7 @@ import "./main_page.css";
 import "../../assets/stylesheets/shared.css";
 import Map from '../maps/map';
 import ToiletCreator from './toilet_creator';
+import ToiletIndex from './toilet_index';
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class MainPage extends React.Component {
                 </div>
                 <div className='toilet-index'>
                     <ToiletCreator history={this.props.history}/>
+                    <ToiletIndex />
                 </div>
             </div>
         );

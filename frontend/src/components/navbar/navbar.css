@@ -1,0 +1,34 @@
+.navbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #5D6D7E;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 22px;
+    padding: 20px;
+    position: relative;
+}
+
+.icon {
+    height: 50px;
+    width: auto;
+}
+
+.nav-links {
+    margin-left: 10px;
+}
+
+.nav-links > a {
+    margin-left: 10px;
+}
+
+.home {
+    font-size: 35px;
+    margin-left: 10px;
+}
+
+.user-nav {
+    position: absolute;
+    right: 30px;
+}

@@ -5,8 +5,15 @@ import {fetchToilet} from '../../util/toilet_api_util';
 
 const mapStateToProps = (state, ownProps) => {
   const toilet = state.entities.toilets(ownProps.match.params.toiletId);
+  if (!toilet) {
+    return null
+  }
+  const lat = toilet.lat
+  const lng = toilet.lng
+  const title = toilet.title
+  const creator_id = toilet.creator_id
   const formType = 'Update Toilet';
-  return {toilet, formType};
+  return {toilet, lat, lng, title, creator_id, formType};
 }
 
 const mapDispatchToProps = dispatch => {

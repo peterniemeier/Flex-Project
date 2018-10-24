@@ -7,6 +7,7 @@ module.exports = function validateToiletInput(data) {
   data.lng = !isEmpty(data.lng) ? data.lng : '';
   data.title = !isEmpty(data.title) ? data.title : '';
   data.creator_id = !isEmpty(data.creator_id) ? data.creator_id : '';
+  data.address = !isEmpty(data.address) ? data.address : '';
 
 
   // if (!Validator.isEmpty(data.lat)) {

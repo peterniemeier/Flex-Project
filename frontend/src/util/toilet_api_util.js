@@ -1,5 +1,6 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import * as ToiletActions from '../actions/toilet_actions';
 
 const $ = window.$;
 export const GET_ERRORS = 'GET_ERRORS';
@@ -30,7 +31,8 @@ export const createToilet = (toilet) => dispatch => {
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(receiveToilets(decoded));
+
+      dispatch(ToiletActions.receiveToilet(decoded));
     })
     .catch(err =>
       dispatch({
@@ -53,7 +55,7 @@ export const updateToilet = (id) => dispatch => {
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(receiveToilets(decoded));
+      dispatch(ToiletActions.receiveToilet(decoded));
     })
     .catch(err =>
       dispatch({
@@ -65,7 +67,7 @@ export const updateToilet = (id) => dispatch => {
 
 export const removeToilet = (id) => dispatch => {
   axios
-    .post('/api/toilets/destroy', id)
+    .delete('/api/toilets/destroy', id)
     .then(res => {
       // Save to localStorage
       const { token } = res.data;
@@ -76,7 +78,7 @@ export const removeToilet = (id) => dispatch => {
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(receiveToilets(decoded));
+      dispatch(ToiletActions.receiveToilet(decoded));
     })
     .catch(err =>
       dispatch({
@@ -99,7 +101,7 @@ export const fetchToilets = () => dispatch => {
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(receiveToilets(decoded));
+      dispatch(ToiletActions.receiveToilets(decoded));
     })
     .catch(err =>
       dispatch({
@@ -122,7 +124,7 @@ export const fetchToilet = (id) => dispatch => {
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // gets the specified toilet
-      dispatch(receiveToilet(decoded));
+      dispatch(ToiletActions.receiveToilet(decoded));
     })
     .catch(err =>
       dispatch({

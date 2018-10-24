@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
 import NavBar from './components/navbar/navbar_container';
 import MainPage from './components/main_page/main_page';
+import ToiletFormContainer from './components/toilet_form/toilet_form_container';
 
 class App extends Component {
   render() {
@@ -10,6 +11,9 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Route path='/main' component={MainPage}/>
+      <NavBar />
+      <Route exact path='/toilets/new' component={ToiletFormContainer} />
+      <Route exact path='/' component={MainPage}/>
       </div>
     );
   }

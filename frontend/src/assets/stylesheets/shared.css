@@ -58,3 +58,10 @@ body {
     background: #F4F6F6;
 }
 
+.input-text {
+  width: 220px;
+  height: 15px;
+  padding: 7px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}

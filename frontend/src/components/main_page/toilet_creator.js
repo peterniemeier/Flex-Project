@@ -7,7 +7,7 @@ import { fetchAddress } from '../../util/map_api_util';
 class ToiletCreator extends React.Component {
 
     constructor(props) {
-        super(props) 
+        super(props)
 
         this.state = {
             currentAddress: 'Loading your location!',
@@ -24,7 +24,7 @@ class ToiletCreator extends React.Component {
             fetchAddress(latLng)
             .then(res => {
                 this.setState({currentAddress: res.results[0].formatted_address});
-            }) 
+            })
         })
     }
 

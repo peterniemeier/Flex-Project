@@ -7,7 +7,9 @@ class Greeting extends React.Component {
 
     render() {
         return (
-            <h1>I am from greeting container</h1>
+            <>
+                <h1>I am from greeting container</h1>
+            </>
         )
     }
 }

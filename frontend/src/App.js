@@ -9,23 +9,15 @@ import SignUpFormContainer from './components/session_form/signup_form_container
 class App extends Component {
   render() { 
     return (
-      <div className="App">
-      <Route exact path='/login' component={SignUpFormContainer} />
-      <Route exact path='/' component={MainPage}/>
-      </div>
+      <>
+        <Greeting />
+        <div className="App">
+          <Route exact path='/login' component={SignUpFormContainer} />
+          <Route exact path='/' component={MainPage}/>
+        </div>
+      </>
     );
   }
 }
 
 export default App;
-
-
-// const App = ({ store }) => (
-//   <Provider store={store}>
-   
-//       <Greeting />
-  
-//   </Provider>
-// );
-
-// export default App;

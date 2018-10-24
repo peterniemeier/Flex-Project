@@ -7,9 +7,10 @@ export const fetchLocation = addressStr => (
     })
 );
 
-export const fetchAddress = latLng => (
-    $.ajax({
-        url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latLng}&key=${window.api_key}`,
+export const fetchAddress = latLng => {
+    const latLngString = `${latLng.lat},${latLng.lng}`;
+    return $.ajax({
+        url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latLngString}&key=${window.api_key}`,
         method: 'GET'
     })
-);
+};

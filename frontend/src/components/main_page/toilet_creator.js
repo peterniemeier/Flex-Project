@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {receiveToiletPos} from '../../actions/map_actions';
+import {receiveToiletPos, receiveToiletAddress} from '../../actions/map_actions';
 import { fetchAddress } from '../../util/map_api_util';
 
 class ToiletCreator extends React.Component {
@@ -17,7 +17,10 @@ class ToiletCreator extends React.Component {
 
     componentDidMount() {
         navigator.geolocation.getCurrentPosition(pos => {
-            const latLng = `${pos.coords.latitude},${pos.coords.longitude}`
+            const latLng = {
+                lat: pos.coords.latitude,
+                lng: pos.coords.longitude,
+            };
             fetchAddress(latLng)
             .then(res => {
                 this.setState({currentAddress: res.results[0].formatted_address});
@@ -26,7 +29,7 @@ class ToiletCreator extends React.Component {
     }
 
     setMyLocation(event) {
-        const {toiletPos, receiveToiletPos} = this.props
+        const {receiveToiletPos, receiveToiletAddress} = this.props
         event.preventDefault();
         let latLng;
         navigator.geolocation.getCurrentPosition(pos => {
@@ -35,13 +38,24 @@ class ToiletCreator extends React.Component {
                 lng: pos.coords.longitude,
             }
             receiveToiletPos(latLng)
-            this.props.history.push('/toilets/create')
+            fetchAddress(latLng)
+            .then(res => {
+                // debugger;
+                receiveToiletAddress(res.results[0].formatted_address);})
+            .then(() => 
+                this.props.history.push('/toilets/create'));
         })
     }
 
     sendToiletLocation(event) {
-        if (this.props.toiletPos) {
-            this.props.history.push('/toilets/create')
+        const {toiletPos, receiveToiletAddress} = this.props;
+        if (toiletPos) {
+            fetchAddress(toiletPos)
+                .then(res => {
+                    // debugger;
+                    receiveToiletAddress(res.results[0].formatted_address);})
+                .then(() =>
+                    this.props.history.push('/toilets/create'));
         } else {
             document.getElementById('toilet-address').classList.add('error');
         }
@@ -50,8 +64,7 @@ class ToiletCreator extends React.Component {
     componentWillReceiveProps(nextProps) {
         const { toiletPos } = nextProps;
         if (toiletPos) {
-            const latLng = `${toiletPos.lat},${toiletPos.lng}`;
-            fetchAddress(latLng)
+            fetchAddress(toiletPos)
             .then(res => {
               this.setState({ toiletAddress: res.results[0].formatted_address});
             })
@@ -85,6 +98,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     receiveToiletPos: pos => dispatch(receiveToiletPos(pos)),
+    receiveToiletAddress: address => dispatch(receiveToiletAddress(address)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToiletCreator);

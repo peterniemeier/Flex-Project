@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import MarkerManager from './marker_manager';
 import './maps.css';
@@ -11,26 +12,28 @@ const google = window.google;
 class Map extends React.Component {
     constructor(props) {
         super(props)
-    
+        
     }
 
     componentDidMount() {
         // const { fetchToilets, toilets} = this.props;
-        const mapOptions = {
-            center: { lat: 37.7749, lng: -122.4194 },
-            zoom: 12
-        };
-        this.map = new google.maps.Map(
-            document.getElementById('map'),
-            mapOptions);
-
-        this.markerManager = new MarkerManager(this.map)
-        this.map.addListener('click', this.handleMapClick.bind(this));
-        this.map.addListener('idle', this.handleIdleMap.bind(this));
-        // this.props.fetchToilets()
-        // .then(() => {
-        //     this.markerManager.createMarkers(toilets);
-        // });
+        // if (google) {
+            const mapOptions = {
+                center: { lat: 37.7749, lng: -122.4194 },
+                zoom: 12
+            };
+            this.map = new google.maps.Map(
+                document.getElementById('map'),
+                mapOptions);
+    
+            this.markerManager = new MarkerManager(this.map, this.props.history);
+            this.map.addListener('click', this.handleMapClick.bind(this));
+            this.map.addListener('idle', this.handleIdleMap.bind(this));
+            // this.props.fetchToilets()
+            // .then(() => {
+            //     this.markerManager.createMarkers(toilets);
+            // });
+        // }
     }
 
     handleIdleMap(event) {
@@ -43,9 +46,6 @@ class Map extends React.Component {
             lat: bounds.getSouthWest().lat(),
             lng: bounds.getSouthWest().lng(),
         };
-
-        console.log(northEast);
-        console.log(southWest);
     }
 
     handleMapClick(event) {
@@ -73,4 +73,4 @@ const mapDispatchToProps = dispatch => ({
     receiveToiletPos: pos => dispatch(receiveToiletPos(pos))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Map);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Map));

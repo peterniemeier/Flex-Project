@@ -21,6 +21,9 @@ const ToiletSchema = new Schema({
   date: {
     type: Date,
     required: true
+  },
+  address: {
+    type: String,
   }
 
 });

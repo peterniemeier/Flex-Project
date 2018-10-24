@@ -8,6 +8,7 @@ class ToiletForm extends React.Component {
       lat: this.props.lat,
       lng: this.props.lng,
       title: this.props.title,
+      // address: this.props.address,
       // creator_id: this.prop.creator_id,
       date: new Date(),
     }

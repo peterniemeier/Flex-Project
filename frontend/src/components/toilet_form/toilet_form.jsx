@@ -15,7 +15,7 @@ class ToiletForm extends React.Component {
   }
 
   update(field) {
-    console.log(this.state)
+
     return(e) => {
       this.setState({[field]: e.target.value});
     }
@@ -28,8 +28,7 @@ class ToiletForm extends React.Component {
 
 
   render() {
-    console.log(this.state);
-    console.log(this.props);
+
     return (
 
       <div>

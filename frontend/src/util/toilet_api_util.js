@@ -19,20 +19,22 @@ export const setAuthToken = token => {
 };
 
 export const createToilet = (toilet) => dispatch => {
-  axios
+return axios
     .post('/api/toilets/create', toilet)
     .then(res => {
-      // Save to localStorage
-      const { token } = res.data;
-      // Set token to ls
-      localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
+      // debugger
+      // console.log(res);
+      // // Save to localStorage
+      // const { token } = res.data;
+      // // Set token to ls
+      // localStorage.setItem('jwtToken', token);
+      // // Set token to Auth header
+      // setAuthToken(token);
+      // // Decode token to get user data
+      // const decoded = jwt_decode(token);
       // gets all toilets
 
-      dispatch(ToiletActions.receiveToilet(decoded));
+      dispatch(ToiletActions.receiveToilet(res));
     })
     .catch(err =>
       dispatch({
@@ -43,7 +45,7 @@ export const createToilet = (toilet) => dispatch => {
 };
 
 export const updateToilet = (id) => dispatch => {
-  axios
+return axios
     .patch(`/api/toilets/${id}`)
     .then(res => {
       // Save to localStorage
@@ -66,7 +68,7 @@ export const updateToilet = (id) => dispatch => {
 };
 
 export const removeToilet = (id) => dispatch => {
-  axios
+return axios
     .delete('/api/toilets/destroy', id)
     .then(res => {
       // Save to localStorage
@@ -89,7 +91,7 @@ export const removeToilet = (id) => dispatch => {
 };
 
 export const fetchToilets = () => dispatch => {
-  axios
+return axios
     .get('/api/toilets')
     .then(res => {
       // Save to localStorage
@@ -112,7 +114,7 @@ export const fetchToilets = () => dispatch => {
 };
 
 export const fetchToilet = (id) => dispatch => {
-  axios
+return axios
     .get(`/api/toilets/${id}`)
     .then(res => {
       // Save to localStorage
@@ -135,7 +137,7 @@ export const fetchToilet = (id) => dispatch => {
 };
 
 export const fetchToiletComments = (id) => dispatch => {
-  axios
+return axios
     .get(`/api/toilets/${id}`)
     .then(res => {
       // Save to localStorage

@@ -25,12 +25,9 @@ router.post('/create', (req,res) => {
     // creator_id: req.body.user.id
     date: req.body.date
   })
-  newToilet.save().then(
-    res.json({
-      success:true,
-
-    })
-  )
+  newToilet.save().then(() => {
+    res.json(newToilet)
+  });
 })
 
   router.delete('/destroy', (req,res) => {

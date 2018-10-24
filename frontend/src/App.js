@@ -9,9 +9,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <NavBar />
-      <Route exact path='/toilets/new' component={ToiletFormContainer} />
-      <Route exact path='/' component={MainPage}/>
+        <NavBar />
+        <Route path='/main' component={MainPage}/>
+        <Route exact path='/toilets/new' component={ToiletFormContainer} />
       </div>
     );
   }

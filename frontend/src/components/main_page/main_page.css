@@ -16,5 +16,32 @@
     display: flex;
     flex-direction: column;
     padding: 5px;
-    
+}
+
+.button-row {
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    height: 45px;
+    margin-bottom: 10px;
+}
+
+.button-row > p {
+    display: flex;
+    border: 1px solid #85929E;
+    border-radius: 4px;
+    padding: 3px;
+    height: 100%;
+    align-items: center;
+    width: 250px;
+}
+
+.button-row > .btn {
+    height: 52px;
+    width: 200px;
+} 
+
+.error {
+    color: red;
+    border: 1px solid red !important;
 }

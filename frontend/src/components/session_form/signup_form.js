@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SessionForm extends React.Component {
+class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     
@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <>
-        <h1>Hello from the Session Form</h1>
+        <h1>Hello from the Sign Up Form</h1>
 
         <form className='signup-form' onSubmit={ this.handleSubmit }>
           <input type='text' onChange={ this.update('email') } value={this.state.email} placeholder='email'></input>
@@ -44,4 +44,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default SignupForm;

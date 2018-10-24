@@ -31,6 +31,7 @@ export const createToilet = (toilet) => dispatch => {
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // gets all toilets
+
       dispatch(ToiletActions.receiveToilet(decoded));
     })
     .catch(err =>

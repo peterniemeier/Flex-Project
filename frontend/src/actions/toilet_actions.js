@@ -19,7 +19,7 @@ export const receiveToilet = toilet => {
 
 export const removeToilet = id => {
   return {
-    type: 'REMOVE_TOILET',
+    type: REMOVE_TOILET,
     id
   }
 }

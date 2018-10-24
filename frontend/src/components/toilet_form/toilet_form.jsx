@@ -24,7 +24,7 @@ class ToiletForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state).then(() => this.props.history.push('/'))
+    this.props.action(this.state).then(() => this.props.history.push('/main'))
   }
 
 

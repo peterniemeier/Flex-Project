@@ -31,7 +31,8 @@ export const createToilet = (toilet) => dispatch => {
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(ToiletActions.receiveToilets(decoded));
+      debugger
+      dispatch(ToiletActions.receiveToilet(decoded));
     })
     .catch(err =>
       dispatch({
@@ -54,7 +55,7 @@ export const updateToilet = (id) => dispatch => {
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(ToiletActions.receiveToilets(decoded));
+      dispatch(ToiletActions.receiveToilet(decoded));
     })
     .catch(err =>
       dispatch({
@@ -77,7 +78,7 @@ export const removeToilet = (id) => dispatch => {
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(ToiletActions.receiveToilets(decoded));
+      dispatch(ToiletActions.receiveToilet(decoded));
     })
     .catch(err =>
       dispatch({

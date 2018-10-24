@@ -8,7 +8,7 @@ class ToiletForm extends React.Component {
       lat: this.props.lat,
       lng: this.props.lng,
       title: this.props.title,
-      creator_id: this.prop.creator_id,
+      // creator_id: this.prop.creator_id,
       date: new Date(),
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,10 @@ class ToiletForm extends React.Component {
 
 
   render() {
+    console.log(this.state);
+    console.log(this.props);
     return (
+
       <div>
         <form onSubmit={this.handleSubmit}>
           <input

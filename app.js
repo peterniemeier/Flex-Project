@@ -9,6 +9,7 @@ mongoose
   .catch(err => console.log(err));
 const port = process.env.PORT || 5000;
 const users = require('./routes/api/users');
+const toilets = require('./routes/api/toilets')
 const passport = require('passport');
 require('./config/passport');
 
@@ -23,7 +24,7 @@ app.get('/', (req,res) => {
   res.send('Shazam!');
 });
 
-app.use("/api/users", users)
-
+app.use("/api/users", users);
+app.use("/api/toilets", toilets);
 
 app.listen(port, () => console.log(`Server is running on port:${port}`));

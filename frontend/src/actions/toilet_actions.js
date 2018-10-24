@@ -1,6 +1,6 @@
 export const RECEIVE_TOILETS = 'RECEIVE_TOILETS';
 export const RECEIVE_TOILET = 'RECEIVE_TOILET';
-export const REMOVE_TOILET = 'RECEIVE_TOILET';
+export const REMOVE_TOILET = 'REMOVE_TOILET';
 
 export const receiveToilets = toilets => {
   return {
@@ -19,7 +19,7 @@ export const receiveToilet = toilet => {
 
 export const removeToilet = id => {
   return {
-    type: 'REMOVE_TOILET',
+    type: REMOVE_TOILET,
     id
   }
 }

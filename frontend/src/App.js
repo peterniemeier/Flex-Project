@@ -11,9 +11,7 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Route path='/main' component={MainPage}/>
-      <NavBar />
-      <Route exact path='/toilets/new' component={ToiletFormContainer} />
-      <Route exact path='/' component={MainPage}/>
+        <Route exact path='/toilets/new' component={ToiletFormContainer} />
       </div>
     );
   }

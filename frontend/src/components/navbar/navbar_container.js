@@ -18,7 +18,7 @@ export class NavBar extends Component {
         <div className='nav-links'>
             <Link to='/toilets/:latlng' className='link-style' >Toilets Near Me</Link>
             <Link to='/best-toilets' className='link-style' >Best Toilets</Link>
-            <Link to='/toilets/create' className='link-style' >Make Toilet</Link>
+            <Link to='/toilets/new' className='link-style' >Make Toilet</Link>
         </div>
         <div className='user-nav'>
           <p>User Info</p>

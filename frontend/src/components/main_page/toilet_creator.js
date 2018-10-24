@@ -40,10 +40,9 @@ class ToiletCreator extends React.Component {
             receiveToiletPos(latLng)
             fetchAddress(latLng)
             .then(res => {
-                // debugger;
                 receiveToiletAddress(res.results[0].formatted_address);})
             .then(() => 
-                this.props.history.push('/toilets/create'));
+                this.props.history.push('/toilets/new'));
         })
     }
 
@@ -52,10 +51,9 @@ class ToiletCreator extends React.Component {
         if (toiletPos) {
             fetchAddress(toiletPos)
                 .then(res => {
-                    // debugger;
                     receiveToiletAddress(res.results[0].formatted_address);})
                 .then(() =>
-                    this.props.history.push('/toilets/create'));
+                    this.props.history.push('/toilets/new'));
         } else {
             document.getElementById('toilet-address').classList.add('error');
         }

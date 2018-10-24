@@ -7,7 +7,7 @@ import './maps.css';
 import { receiveToiletPos } from '../../actions/map_actions';
 // import { fetchToilets } from '../../actions/toilet_actions';
 
-const google = window.google;
+
 
 class Map extends React.Component {
     constructor(props) {
@@ -16,6 +16,7 @@ class Map extends React.Component {
     }
 
     componentDidMount() {
+        const google = window.google;
         // const { fetchToilets, toilets} = this.props;
         // if (google) {
             const mapOptions = {

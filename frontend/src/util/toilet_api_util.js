@@ -90,7 +90,7 @@ export const removeToilet = (id) => dispatch => {
 
 export const fetchToilets = () => dispatch => {
   axios
-    .post('/api/toilets')
+    .get('/api/toilets')
     .then(res => {
       // Save to localStorage
       const { token } = res.data;
@@ -113,7 +113,30 @@ export const fetchToilets = () => dispatch => {
 
 export const fetchToilet = (id) => dispatch => {
   axios
-    .post(`/api/toilets/${id}`)
+    .get(`/api/toilets/${id}`)
+    .then(res => {
+      // Save to localStorage
+      const { token } = res.data;
+      // Set token to ls
+      localStorage.setItem('jwtToken', token);
+      // Set token to Auth header
+      setAuthToken(token);
+      // Decode token to get user data
+      const decoded = jwt_decode(token);
+      // gets the specified toilet
+      dispatch(ToiletActions.receiveToilet(decoded));
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+export const fetchToiletComments = (id) => dispatch => {
+  axios
+    .get(`/api/toilets/${id}`)
     .then(res => {
       // Save to localStorage
       const { token } = res.data;

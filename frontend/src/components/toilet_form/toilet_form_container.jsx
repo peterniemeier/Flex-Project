@@ -4,6 +4,7 @@ import ToiletForm from './toilet_form';
 import {createToilet} from '../../util/toilet_api_util';
 
 const mapStateToProps = (state, ownProps) => {
+
   return {
     lat: state.ui.maps.toiletPos.lat,
     lng: state.ui.maps.toiletPos.lng,

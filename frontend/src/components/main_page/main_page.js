@@ -1,5 +1,6 @@
 import React from 'react';
 import "./main_page.css";
+import "../../assets/stylesheets/shared.css";
 import Map from '../maps/map';
 import ToiletCreator from './toilet_creator';
 

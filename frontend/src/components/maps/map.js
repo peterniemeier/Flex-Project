@@ -6,15 +6,16 @@ import './maps.css';
 import { receiveToiletPos } from '../../actions/map_actions';
 // import { fetchToilets } from '../../actions/toilet_actions';
 
-const google = window.google;
+
 
 class Map extends React.Component {
     constructor(props) {
         super(props)
-    
+
     }
 
     componentDidMount() {
+        const google = window.google;
         // const { fetchToilets, toilets} = this.props;
         const mapOptions = {
             center: { lat: 37.7749, lng: -122.4194 },

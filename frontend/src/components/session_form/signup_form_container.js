@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { registerUser } from "../../util/session_api_util";
 import SignUpForm from "./signup_form";
-
+import { closeModal } from "../../actions/modal_actions"; 
 
 const msp = ({ errors }) => {
   return {
@@ -15,7 +15,8 @@ const msp = ({ errors }) => {
 
 const mdp = dispatch => {
   return {
-    processForm: user => dispatch(registerUser(user))
+    processForm: user => dispatch(registerUser(user)),
+    closeModal: () => dispatch(closeModal())
   };
 };
 

@@ -18,7 +18,6 @@ function Modal({ modal, closeModal, clearErrors }) {
   let component;
   switch (modal) {
     case 'login':
-      console.log('login');
       component = <SignInFormContainer />;
       break;
     case 'signup':

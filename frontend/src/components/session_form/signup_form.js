@@ -23,14 +23,20 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state);
+    this.props.processForm(this.state).then((success) => {
+      if (success.type === "RECEIVE_CURRENT_USER") {
+        this.props.closeModal();
+      } else {
+        console.log('failed to sign up')
+      }
+    });
   }
 
   render() {
     return (
       <>
-        <h1>Hello from the Sign Up Form</h1>
-
+        <h1>SIGN UP Form</h1>
+        { Object.values(this.props.errors) }
         <form className='signup-form' onSubmit={ this.handleSubmit }>
           <input type='text' onChange={ this.update('email') } value={this.state.email} placeholder='email'></input>
           <input type='text' onChange={ this.update('username') } value={this.state.username} placeholder='username'></input>

@@ -25,18 +25,18 @@ class SignInForm extends React.Component {
       if (success.type === "RECEIVE_CURRENT_USER") {
         this.props.closeModal();
       } else {
-        console.log('error')
+        console.log('failed to sign in')
       }
     });
 
   }
 
   render() {
-    // console.log(this.props)
+    // let errors = this.props.errors;
     return (
       <>
-        <h1>Hello from the Sign In Form</h1>
-
+        <h1>SIGN IN</h1>
+        { Object.values(this.props.errors) }
         <form className='signup-form' onSubmit={this.handleSubmit}>
           <input type='text' onChange={this.update('username')} value={this.state.username} placeholder='username'></input>
           <input type='password' onChange={this.update('password')} value={this.state.password} placeholder='password'></input>

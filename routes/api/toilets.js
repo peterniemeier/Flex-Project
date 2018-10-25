@@ -8,13 +8,23 @@ const keys = require('../../config/keys');
 const validateToiletInput = require('../../validations/toilet');
 
 router.get('/', (req,res) => {
-  Toilet.find().sort({date: -1}).then(toilets => res.json(toilets))
+  Toilet.find().sort({date: -1}).then(toilets => {
+    let result = {};
+
+    toilets.map (toilet => {
+      result[toilet.id] = toilet
+    })
+
+    res.json(result)
+  })
   .catch(err => res.status(404).json({notoiletsfound: 'No toilets found'}))
 });
 
 router.get("/:id", (req,res) => {
-  Toilet.findById(req.params.id).then(toilet => res.json(toilet))
-  .catch(err => res.status(404).json({notoiletfound: 'No toilet found'}))
+  Toilet.findById(req.params.id)
+  .then(toilet => res.json(toilet))
+  .catch(err => {}})
+
 });
 
 router.post('/create', (req,res) => {

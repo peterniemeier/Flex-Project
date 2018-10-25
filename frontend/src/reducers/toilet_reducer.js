@@ -9,9 +9,9 @@ const toiletReducers = (state = {}, action) => {
       case RECEIVE_TOILETS:
         return action.toilets.data;
       case RECEIVE_TOILET:
-        return Object.assign({}, {[action.toilet.id]: action.toilet})
+        return Object.assign({}, {[action.toilet._id]: action.toilet})
       case REMOVE_TOILET:
-        delete state[action.toilet.id]
+        delete state[action.toilet._id]
         return state;
       default:
         return state;

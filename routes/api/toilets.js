@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     let result = {};
 
     toilets.map(toilet => {
-      result[toilet.id] = toilet
+      result[toilet._id] = toilet
     })
 
     res.json(result)

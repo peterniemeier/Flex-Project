@@ -33,14 +33,14 @@ class Map extends React.Component {
         fetchToilets()
         .then((res) => {
             this.markerManager.createMarkers(this.props.toilets);
+            const toiletId = this.props.match.params.toiletId;
+            if (toiletId) {
+              const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
+              this.map.setZoom(17);
+              this.map.setCenter(pos);
+            }
         });
         // }
-        const toiletId = this.props.match.params.toiletId;
-        if (toiletId) {
-          const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
-          this.map.setZoom(17);
-          this.map.setCenter(pos);
-        }
     }
 
     handleIdleMap(event) {

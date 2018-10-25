@@ -4,5 +4,4 @@ import { combineReducers } from 'redux';
 
 export default combineReducers({
     toilets: toiletReducers,
-    comments: commentReducers,
 })

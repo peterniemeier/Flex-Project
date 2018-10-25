@@ -22,6 +22,7 @@ router.post('/create', (req,res) => {
     lat: req.body.lat,
     lng: req.body.lng,
     title: req.body.title,
+    address: req.body.address,
     // creator: req.user.id,
     date: req.body.date
   })

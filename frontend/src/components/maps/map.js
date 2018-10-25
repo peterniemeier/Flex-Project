@@ -67,19 +67,6 @@ class Map extends React.Component {
           .classList.remove("error");
     }
 
-    // componentWillReceiveProps(newProps) {
-    //     debugger;
-    //     const toiletId = newProps.match.params.toiletId;
-    //     if (toiletId && toiletId !== this.props.match.params.toiletId) {
-    //         const pos = {
-    //             lat: newProps.toilets[toiletId].lat,
-    //             lng: newProps.toilets[toiletId].lng,
-    //         }
-    //         this.map.setZoom(17);
-    //         this.map.setCenter(pos);
-    //     }
-    // }
-
     render() {
         return <div className='map' id='map'></div>;
     }

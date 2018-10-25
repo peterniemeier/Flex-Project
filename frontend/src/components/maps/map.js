@@ -12,7 +12,6 @@ import { receiveToiletPos } from '../../actions/map_actions';
 class Map extends React.Component {
     constructor(props) {
         super(props)
-        
     }
 
     componentDidMount() {

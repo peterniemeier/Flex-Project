@@ -8,7 +8,7 @@ class ToiletForm extends React.Component {
       lat: this.props.lat,
       lng: this.props.lng,
       title: this.props.title,
-      // address: this.props.address,
+      address: this.props.address,
       // creator_id: this.prop.creator_id,
       date: new Date(),
     }
@@ -24,7 +24,7 @@ class ToiletForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state).then(() => this.props.history.push('/'))
+    this.props.dispatchToilet(this.state).then(() => this.props.history.push('/'))
   }
 
 

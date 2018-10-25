@@ -9,7 +9,7 @@ module.exports = function validateRegistrationInput(data) {
   data.password2 = !isEmpty(data.password2) ? data.password2 : '';
   data.username = !isEmpty(data.username) ? data.username : '';
 
-  if (Validator.isEmail(data.email)) {
+  if (!Validator.isEmail(data.email)) {
     errors.email = 'Email is not valid';
   }
 

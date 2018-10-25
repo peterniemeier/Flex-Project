@@ -10,18 +10,18 @@ module.exports = function validateToiletInput(data) {
 
 
   if (Validator.isEmpty(data.creator)) {
-    errors.email = 'Lat is required';
+    errors.email = 'creator is required';
   }
   if (Validator.isEmpty(data.toilet)) {
-    errors.email = 'Lng is required';
+    errors.email = 'toilet is required';
   }
 
   if (Validator.isEmpty(data.body)) {
-    errors.email = 'Title is required';
+    errors.email = 'body is required';
   }
 
   if (Validator.isEmpty(data.rating)) {
-    errors.email = 'Creator_id is required';
+    errors.email = 'rating is required';
   }
 
   return {

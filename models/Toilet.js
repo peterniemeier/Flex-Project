@@ -24,7 +24,11 @@ const ToiletSchema = new Schema({
   },
   address: {
     type: String,
-  }
+  },
+  comments: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Toilet'
+  }]
 
 
 });

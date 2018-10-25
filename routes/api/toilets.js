@@ -7,22 +7,25 @@ const Toilet = require("../../models/Toilet");
 const keys = require('../../config/keys');
 const validateToiletInput = require('../../validations/toilet');
 
-router.get('/', (req, res) => {
-  Toilet.find().sort({ date: -1 }).then(toilets => {
+router.get('/', (req,res) => {
+  Toilet.find().sort({date: -1}).then(toilets => {
     let result = {};
 
-    toilets.map(toilet => {
+    toilets.map (toilet => {
       result[toilet.id] = toilet
     })
 
     res.json(result)
   })
-    .catch(err => res.status(404).json({ notoiletsfound: 'No toilets found' }))
+  .catch(err => res.status(404).json({notoiletsfound: 'No toilets found'}))
 });
 
 router.get("/:id", (req,res) => {
-  Toilet.findById(req.params.id).then(toilet => res.json(toilet))
-  .catch(err => {})
+  Toilet.findById(req.params.id)
+  .then(toilet => res.json(toilet))
+  .catch(err => {res.status(404)
+  .json({notoiletfound: 'No toilet found'})})
+
 });
 
 router.post('/create', (req,res) => {
@@ -30,7 +33,6 @@ router.post('/create', (req,res) => {
     lat: req.body.lat,
     lng: req.body.lng,
     title: req.body.title,
-    address: req.body.address,
     // creator: req.user.id,
     date: req.body.date
   })

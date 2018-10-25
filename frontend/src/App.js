@@ -13,17 +13,16 @@ import ToiletShowContainer from './components/toilet_show/toilet_show_container'
 class App extends Component {
   render() { 
     return (
-      <>
-        <Modal />
-        <NavBar />
-        <div className="App">
+      <div className="App">
+          <Modal />
+          <NavBar />
+          <Route path='/main/:toiletId' component={MainPage} />
+          <Route exact path='/main/' component={MainPage}/>
           <Route exact path='/toilets/new' component={ToiletFormContainer} />
           <Route exact path='/toilets/:toiletId' component={ToiletShowContainer} />
           <Route exact path='/signup' component={SignUpFormContainer} />
           <Route exact path='/signin' component={SignInFormContainer} />
-          <Route path='/main' component={MainPage} />
-        </div>
-      </>
+      </div>
     );
   }
 }

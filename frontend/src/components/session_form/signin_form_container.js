@@ -16,7 +16,7 @@ const msp = ({ errors }) => {
 const mdp = dispatch => {
   return {
     processForm: user => dispatch(loginUser(user)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
   };
 };
 

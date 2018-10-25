@@ -1,3 +1,4 @@
+
 import {
   RECEIVE_TOILET,
   RECEIVE_COMMENT
@@ -13,6 +14,6 @@ export default (state = {}, action) => {
     case RECEIVE_COMMENT:
       return Object.assign(newState, {[action.comment.id]: action.comment})
     default:
-      return state 
+      return state
   }
 }

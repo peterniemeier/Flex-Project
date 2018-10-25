@@ -19,7 +19,6 @@ export const setAuthToken = token => {
   }
 };
 
-
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
@@ -67,7 +66,6 @@ export const loginUser = userData => dispatch => {
       })
     );
 };
-
 
 // Set logged in user
 export const setCurrentUser = decoded => {

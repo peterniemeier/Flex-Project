@@ -31,7 +31,7 @@ class Map extends React.Component {
         this.map.addListener('click', this.handleMapClick.bind(this));
         this.map.addListener('idle', this.handleIdleMap.bind(this));
         fetchToilets()
-        .then((res) => {
+        .then(() => {
             this.markerManager.createMarkers(this.props.toilets);
             const toiletId = this.props.match.params.toiletId;
             if (toiletId) {
@@ -41,6 +41,15 @@ class Map extends React.Component {
             }
         });
         // }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const toiletId = nextProps.match.params.toiletId;
+        if (toiletId && toiletId !== this.props.match.params.toiletId) {
+            const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
+            this.map.setZoom(17);
+            this.map.setCenter(pos);
+        }
     }
 
     handleIdleMap(event) {

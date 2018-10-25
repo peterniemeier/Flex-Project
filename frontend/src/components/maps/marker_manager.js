@@ -5,15 +5,6 @@ export default class MarkerManager {
         this.map = map;
         this.markers = [];
         this.history = history;
-        
-        const toilets = [
-            {
-                id: 23,
-                lat: 37.76514693935538,
-                lng: -122.43948438110351
-            }
-        ]
-        this.createMarkers(toilets);
     }
 
     createMarker(position) {
@@ -41,7 +32,7 @@ export default class MarkerManager {
         };
 
         const markers = this.markers;
-        toilets.forEach(toilet => {
+        Object.values(toilets).forEach(toilet => {
             const marker = new google.maps.Marker({
                 position: {
                     lat: toilet.lat,
@@ -55,7 +46,7 @@ export default class MarkerManager {
             marker.addListener('click', () => {
                 this.map.setZoom(17);
                 this.map.setCenter(marker.getPosition());
-                this.history.push(`/main/${toilet.id}`)
+                this.history.push(`/main/${toilet._id}`)
             })
 
             markers.push(marker);

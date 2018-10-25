@@ -3,7 +3,7 @@ import {
     RECEIVE_TOILET_ADDRESS,
 } from '../actions/map_actions';
 
-export default (state = {}, action) => {
+export default (state = {toiletPos: null, toiletAddress: null}, action) => {
     Object.freeze(state) 
     const newState = Object.assign({}, state);
     

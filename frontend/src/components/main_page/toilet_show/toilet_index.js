@@ -3,21 +3,25 @@ import { connect } from 'react-redux'
 
 import ToiletIndexItem from './toilet_index_item';
 
+
 export class ToiletIndex extends Component {
   constructor(props) {
       super(props);
   }
 
+  // componentDidMount() {
+
+  // }
+
   render() {
+    const { toilets } = this.props; 
     return (
-      <div className='toilet-index'>
-        <ul>
-            {Object.values(this.props.toilets).map(toilet => {
-                return <ToiletIndexItem key={toilet.id} 
-                toilet={toilet} />
-            })}
-        </ul>
-      </div>
+      <ul>
+          {Object.values(toilets).map(toilet => {
+              return <ToiletIndexItem key={toilet.id} 
+              toilet={toilet} history={this.props.history}/>
+          })}
+      </ul>
     )
   }
 }

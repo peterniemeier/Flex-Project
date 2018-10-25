@@ -14,10 +14,11 @@ import configureStore from "./store/store";
 import Root from "./root.js";
 import * as serviceWorker from "./serviceWorker.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+const makeReact = () => {
+  console.log('makeReeeeeeeeeact')
   let store = configureStore();
   // Check for token
-  if (localStorage.jwtToken) {
+  if (localStorage.jwtToken && localStorage.jwtToken !== "undefined") {
     // Set auth token header auth
     APIUtil.setAuthToken(localStorage.jwtToken);
     // Decode token and get user info and exp
@@ -37,4 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
   serviceWorker.unregister();
+};
+
+window.marriage.then(() => {
+  console.log('marrrrrriage')
+  // debugger;
+  if (document.readyState === 'loading') {
+      document.addEventListener("DOMContentLoaded", makeReact);
+    } else {
+      makeReact(); 
+    }
 });
+      

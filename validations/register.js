@@ -3,6 +3,7 @@ const isEmpty = require('./is-empty');
 
 module.exports = function validateRegistrationInput(data) {
   let errors = {};
+
   data.email = !isEmpty(data.email) ? data.email : '';
   data.password = !isEmpty(data.password) ? data.password : '';
   data.password2 = !isEmpty(data.password2) ? data.password2 : '';
@@ -12,12 +13,12 @@ module.exports = function validateRegistrationInput(data) {
     errors.email = 'Email is not valid';
   }
 
-  if (!Validator.isEmpty(data.email)) {
+  if (Validator.isEmpty(data.email)) {
     errors.email = 'Email is required';
   }
 
-  if (!Validator.isEmpty(data.username)) {
-    errors.email = 'Username is required';
+  if (Validator.isEmpty(data.username)) {
+    errors.username = 'Username is required';
   }
 
   if (!Validator.isLength(data.username, {min: 2, max: 30})) {
@@ -28,7 +29,7 @@ module.exports = function validateRegistrationInput(data) {
     errors.password = 'Password must be between 6 and 30 characters';
   }
 
-  if (!Validator.isEmpty(data.password)) {
+  if (Validator.isEmpty(data.password)) {
     errors.password = 'Password is required';
   }
 
@@ -36,7 +37,7 @@ module.exports = function validateRegistrationInput(data) {
     errors.password2 = 'Password2 must be between 6 and 30 characters';
   }
 
-  if (!Validator.isEmpty(data.password2)) {
+  if (Validator.isEmpty(data.password2)) {
     errors.password2 = 'Password2 is required';
   }
 
@@ -47,6 +48,6 @@ module.exports = function validateRegistrationInput(data) {
   return {
     errors,
     isValid: isEmpty(errors)
-  }
+  };
 
 };

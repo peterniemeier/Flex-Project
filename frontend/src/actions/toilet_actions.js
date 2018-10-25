@@ -1,17 +1,18 @@
-// import * as ToiletUtilAPI from './'
-
 export const RECEIVE_TOILETS = 'RECEIVE_TOILETS';
 export const RECEIVE_TOILET = 'RECEIVE_TOILET';
-export const REMOVE_TOILET = 'RECEIVE_TOILET';
+export const REMOVE_TOILET = 'REMOVE_TOILET';
 
-const recieveToilets = toilets => {
+export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
+export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
+
+export const receiveToilets = toilets => {
   return {
     type: RECEIVE_TOILETS,
     toilets
   }
 }
 
-const receiveToilet = toilet => {
+export const receiveToilet = toilet => {
   return {
     type: RECEIVE_TOILET,
     toilet
@@ -19,9 +20,23 @@ const receiveToilet = toilet => {
 }
 
 
-const removeToilet = id => {
+export const removeToilet = id => {
   return {
-    type: 'REMOVE_TOILET',
+    type: REMOVE_TOILET,
     id
+  }
+}
+
+export const receiveToiletComments = comments => {
+  return {
+    type: RECEIVE_COMMENTS,
+    comments
+  }
+}
+
+export const receiveToiletComment = comment => {
+  return {
+    type: RECEIVE_COMMENT,
+    comment
   }
 }

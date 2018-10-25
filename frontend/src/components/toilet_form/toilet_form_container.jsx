@@ -8,14 +8,16 @@ const mapStateToProps = (state, ownProps) => {
     lat: state.ui.maps.toiletPos.lat,
     lng: state.ui.maps.toiletPos.lng,
     title: '',
-    creator_id: state.session.id,
+    address: state.ui.maps.toiletAddress,
+    comments: [],
+    // creator: state.session.id,
     formType: 'Add Toilet'
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    action: toilet => dispatch(createToilet(toilet)),
+    dispatchToilet: toilet => dispatch(createToilet(toilet)),
   }
 }
 

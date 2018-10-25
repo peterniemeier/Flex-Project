@@ -1,0 +1,99 @@
+.btn {
+    padding: 10px 10px;
+    min-height: 40px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px gray;
+    color: black;
+    font-family: Courier New, monospace;
+    font-size: 14px;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #34495E;
+    border: 1px solid #85929E;
+}
+
+.btn-secondary {
+    background-color: #AAB7B8;
+    border: 1px solid #85929E;
+}
+
+.btn-submit {
+    background-color: #fff;
+    border: 1px solid #85929E;
+}
+
+.btn-primary:hover {
+    background-color: rgb(57, 66, 75);
+    border: 1px solid #85929E;
+}
+
+.btn-secondary:hover {
+    background-color: rgb(125, 139, 140);
+    border: 1px solid #85929E;
+}
+
+.btn-submit:hover {
+    background-color: rgb(213, 213, 212);
+    border: 1px solid #85929E;
+    cursor: pointer;
+}
+
+.btn-s {
+    width: 100px;
+    height: 40px;
+
+}
+
+.btn-m {
+    width: 150px;
+    height: 40px;
+}
+
+.btn-l {
+    width: 200px;
+    height: 50px;
+}
+
+.link-style {
+    color: #E5E8E8;
+    text-decoration: none;
+}
+
+.link-style:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+.active {
+    color: #fff;
+}
+
+body {
+    background: #F4F6F6;
+}
+
+.input-text {
+  width: 220px;
+  height: 15px;
+  padding: 9px;
+  border: 1px solid #85929E;
+  border-radius: 4px;
+  font-family: Courier New, monospace;
+  font-size: 16px;
+}
+
+.input-text:focus {
+    outline: none;
+    border: 1px solid #34495E;
+    background-color: rgb(218, 218, 218);
+}
+
+.m-6 {
+    margin: 6px;
+}

@@ -1,19 +1,20 @@
 import { connect } from 'react-redux';
-
-import { logoutUser } from '../../util/session_api_util';
+import { logoutUser, loginUser } from '../../util/session_api_util';
+import { openModal } from "../../actions/modal_actions";
 import Greeting from './greeting';
 
-const mapStateToProps = ({ session }) => {
+const msp = ({ session }) => {
   return {
-    currentUser: session
+    currentUser: session.username
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logoutUser())
+const mdp = dispatch => ({
+  logout: () => dispatch(logoutUser()),
+  login: (user) => dispatch(loginUser(user)),
+  openModal: modal => dispatch(openModal(modal))
+  
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Greeting);
+export default connect(msp, mdp)(Greeting);
+

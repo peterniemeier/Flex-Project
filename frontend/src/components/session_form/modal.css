@@ -1,0 +1,48 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.login-errors {
+  color: rgb(211, 3, 3);
+  font-family: helvetica;
+  font-size: 14px;
+  margin: 0;
+  padding-left: 22px;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-form {
+  border-radius: 6px;
+  display: flex;
+  min-height: 200px;
+  width: 350px;
+  border: 1px solid black;
+  padding: 20px;
+  font-family: helvetica;
+  flex-direction: column;
+  background-color: white;
+  margin-left: 40px;
+  align-items: center;
+}
+
+.signup-form > input {
+  margin-bottom: 25px;
+}
+

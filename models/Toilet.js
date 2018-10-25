@@ -14,14 +14,22 @@ const ToiletSchema = new Schema({
     type: String,
     required: true
   },
-  creator_id: {
+  creator: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
   date: {
     type: Date,
     required: true
-  }
+  },
+  address: {
+    type: String,
+  },
+  comments: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Toilet'
+  }]
+
 
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../../assets/stylesheets/shared.css'
 
 class ToiletForm extends React.Component {
   constructor(props) {
@@ -8,7 +8,9 @@ class ToiletForm extends React.Component {
       lat: this.props.lat,
       lng: this.props.lng,
       title: this.props.title,
-      creator_id: this.prop.creator_id,
+      address: this.props.address,
+      comments: this.props.comments,
+      // creator: this.prop.creator,
       date: new Date(),
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,25 +20,29 @@ class ToiletForm extends React.Component {
     return(e) => {
       this.setState({[field]: e.target.value});
     }
-}
+  }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state).then(() => this.props.history.push('/'))
+    this.props.dispatchToilet(this.state).then(() => this.props.history.push('/main'))
   }
 
 
   render() {
+
     return (
+
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
+            className="input-text"
             type="text"
             placeholder="Title of the Porcelain You're Sitting On"
             value={this.state.title}
             onChange={this.update('title')}
             />
           <input
+            className="btn btn-submit"
             type="submit"
             value={this.props.formType}
             />

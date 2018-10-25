@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ToiletForm from './toilet_form';
-import {fetchToilet} from '../../util/toilet_api_util';
+import {fetchToilet, updateToilet} from '../../util/toilet_api_util';
 
 const mapStateToProps = (state, ownProps) => {
   const toilet = state.entities.toilets(ownProps.match.params.toiletId);
@@ -18,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchToilet: id => dispatch(fetchToilet(id))
+    fetchToilet: id => dispatch(fetchToilet(id)),
+    dispatchToilet: toilet => dispatch(updateToilet(toilet)),
   }
 }
 

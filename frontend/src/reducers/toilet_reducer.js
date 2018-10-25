@@ -8,11 +8,11 @@ const toiletReducers = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
       case RECEIVE_TOILETS:
-        return action.toilets;
+        return action.toilets.data;
       case RECEIVE_TOILET:
-        return Object.assign({}, {[action.toilet.id]: action.toilet})
+        return Object.assign({}, {[action.toilet.data._id]: action.toilet.data})
       case REMOVE_TOILET:
-        delete state[action.toilet.id]
+        delete state[action.toilet._id]
         return state;
       default:
         return state;
@@ -20,4 +20,4 @@ const toiletReducers = (state = {}, action) => {
 }
 
 
-export default toiletReducers; 
+export default toiletReducers;

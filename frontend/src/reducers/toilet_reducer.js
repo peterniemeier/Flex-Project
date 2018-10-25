@@ -9,7 +9,7 @@ const toiletReducers = (state = {}, action) => {
       case RECEIVE_TOILETS:
         return action.toilets.data;
       case RECEIVE_TOILET:
-        return Object.assign({}, {[action.toilet._id]: action.toilet})
+        return Object.assign({}, {[action.toilet.data._id]: action.toilet.data})
       case REMOVE_TOILET:
         delete state[action.toilet._id]
         return state;
@@ -19,4 +19,4 @@ const toiletReducers = (state = {}, action) => {
 }
 
 
-export default toiletReducers; 
+export default toiletReducers;

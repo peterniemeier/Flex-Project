@@ -12,7 +12,6 @@ import { fetchToilets } from '../../util/toilet_api_util';
 class Map extends React.Component {
     constructor(props) {
         super(props)
-        
     }
 
     componentDidMount() {

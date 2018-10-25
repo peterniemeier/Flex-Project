@@ -9,6 +9,7 @@ class ToiletForm extends React.Component {
       lng: this.props.lng,
       title: this.props.title,
       address: this.props.address,
+      comments: this.props.comments,
       // creator: this.prop.creator,
       date: new Date(),
     }
@@ -16,7 +17,6 @@ class ToiletForm extends React.Component {
   }
 
   update(field) {
-
     return(e) => {
       this.setState({[field]: e.target.value});
     }

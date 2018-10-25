@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    action: toilet => dispatch(createToilet(toilet)),
+    dispatchToilet: toilet => dispatch(createToilet(toilet)),
   }
 }
 

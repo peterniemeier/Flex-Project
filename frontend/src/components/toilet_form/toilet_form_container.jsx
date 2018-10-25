@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
     lng: state.ui.maps.toiletPos.lng,
     title: '',
     address: state.ui.maps.toiletAddress,
-    // creator_id: state.session.id,
+    // creator: state.session.id,
     formType: 'Add Toilet'
   }
 }

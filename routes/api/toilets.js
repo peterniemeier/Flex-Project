@@ -22,7 +22,7 @@ router.post('/create', (req,res) => {
     lat: req.body.lat,
     lng: req.body.lng,
     title: req.body.title,
-    // creator_id: req.body.user.id
+    // creator: req.user.id,
     date: req.body.date
   })
   newToilet.save().then(() => {

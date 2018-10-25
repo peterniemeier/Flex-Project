@@ -22,18 +22,6 @@ export const createToilet = (toilet) => dispatch => {
 return axios
     .post('/api/toilets/create', toilet)
     .then(res => {
-      // debugger
-      // console.log(res);
-      // // Save to localStorage
-      // const { token } = res.data;
-      // // Set token to ls
-      // localStorage.setItem('jwtToken', token);
-      // // Set token to Auth header
-      // setAuthToken(token);
-      // // Decode token to get user data
-      // const decoded = jwt_decode(token);
-      // gets all toilets
-
       dispatch(ToiletActions.receiveToilet(res));
     })
     .catch(err =>
@@ -48,16 +36,8 @@ export const updateToilet = (id) => dispatch => {
 return axios
     .patch(`/api/toilets/${id}`)
     .then(res => {
-      // Save to localStorage
-      const { token } = res.data;
-      // Set token to ls
-      localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(ToiletActions.receiveToilet(decoded));
+      dispatch(ToiletActions.receiveToilet(res));
     })
     .catch(err =>
       dispatch({
@@ -71,16 +51,8 @@ export const removeToilet = (id) => dispatch => {
 return axios
     .delete('/api/toilets/destroy', id)
     .then(res => {
-      // Save to localStorage
-      const { token } = res.data;
-      // Set token to ls
-      localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(ToiletActions.receiveToilet(decoded));
+      dispatch(ToiletActions.receiveToilet(res));
     })
     .catch(err =>
       dispatch({
@@ -94,16 +66,8 @@ export const fetchToilets = () => dispatch => {
 return axios
     .get('/api/toilets')
     .then(res => {
-      // Save to localStorage
-      const { token } = res.data;
-      // Set token to ls
-      localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(ToiletActions.receiveToilets(decoded));
+      dispatch(ToiletActions.receiveToilets(res));
     })
     .catch(err =>
       dispatch({
@@ -117,16 +81,8 @@ export const fetchToilet = (id) => dispatch => {
 return axios
     .get(`/api/toilets/${id}`)
     .then(res => {
-      // Save to localStorage
-      const { token } = res.data;
-      // Set token to ls
-      localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
       // gets the specified toilet
-      dispatch(ToiletActions.receiveToilet(decoded));
+      dispatch(ToiletActions.receiveToilet(res));
     })
     .catch(err =>
       dispatch({
@@ -136,20 +92,28 @@ return axios
     );
 };
 
+export const createToiletComment = (comment) => dispatch => {
+return axios
+    .post('/api/comments/create', comment)
+    .then(res => {
+      dispatch(ToiletActions.receiveToiletComment(res));
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+//fetchToiletComments' id is the id of the toilet whose comments
+//we want to fetch.
 export const fetchToiletComments = (id) => dispatch => {
 return axios
-    .get(`/api/toilets/${id}`)
+    .get(`/api/comments/${id}`)
     .then(res => {
-      // Save to localStorage
-      const { token } = res.data;
-      // Set token to ls
-      localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
       // gets the specified toilet
-      dispatch(ToiletActions.receiveToilet(decoded));
+      dispatch(ToiletActions.receiveToiletComments(res));
     })
     .catch(err =>
       dispatch({

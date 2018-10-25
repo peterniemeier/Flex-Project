@@ -9,7 +9,7 @@ class ToiletForm extends React.Component {
       lng: this.props.lng,
       title: this.props.title,
       address: this.props.address,
-      // creator_id: this.prop.creator_id,
+      // creator: this.prop.creator,
       date: new Date(),
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,11 +20,11 @@ class ToiletForm extends React.Component {
     return(e) => {
       this.setState({[field]: e.target.value});
     }
-}
+  }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.dispatchToilet(this.state).then(() => this.props.history.push('/'))
+    this.props.action(this.state).then(() => this.props.history.push('/main'))
   }
 
 

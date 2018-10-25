@@ -2,6 +2,9 @@ export const RECEIVE_TOILETS = 'RECEIVE_TOILETS';
 export const RECEIVE_TOILET = 'RECEIVE_TOILET';
 export const REMOVE_TOILET = 'REMOVE_TOILET';
 
+export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
+export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
+
 export const receiveToilets = toilets => {
   return {
     type: RECEIVE_TOILETS,
@@ -21,5 +24,19 @@ export const removeToilet = id => {
   return {
     type: REMOVE_TOILET,
     id
+  }
+}
+
+export const receiveToiletComments = comments => {
+  return {
+    type: RECEIVE_COMMENTS,
+    comments
+  }
+}
+
+export const receiveToiletComment = comment => {
+  return {
+    type: RECEIVE_COMMENT,
+    comment
   }
 }

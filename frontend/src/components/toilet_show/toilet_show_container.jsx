@@ -14,6 +14,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchToilet: id => dispatch(fetchToilet(id)),
-    fetchToiletComments: () => dispatch(fetchToiletComments())
+    // fetchToiletComments: () => dispatch(fetchToiletComments())
   }
 }

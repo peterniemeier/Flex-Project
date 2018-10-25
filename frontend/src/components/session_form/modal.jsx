@@ -1,9 +1,9 @@
 import React from 'react';
-import { closeModal } from '../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import SignInFormContainer from './session_form/signin_form_container';
-import SignUpFormContainer from './session_form/signup_form_container';
-import { clearErrors } from '../actions/session_actions';
+import SignInFormContainer from './signin_form_container';
+import SignUpFormContainer from './signup_form_container';
+// import { clearErrors } from '../actions/session_actions';
 
 function Modal({ modal, closeModal, clearErrors }) {
   if (!modal) {
@@ -18,6 +18,7 @@ function Modal({ modal, closeModal, clearErrors }) {
   let component;
   switch (modal) {
     case 'login':
+      console.log('login');
       component = <SignInFormContainer />;
       break;
     case 'signup':
@@ -45,7 +46,7 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     closeModal: () => dispatch(closeModal()),
-    clearErrors: () => dispatch(clearErrors())
+    // clearErrors: () => dispatch(clearErrors())
   };
 };
 

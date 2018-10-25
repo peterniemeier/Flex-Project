@@ -4,12 +4,11 @@ import Link from 'react-router-dom'
 class ToiletShow extends React.Component {
   constructor(props) {
     super(props)
-    // this.state = {
-    //   toilet_id: this.props.toilet._id
-    //  rating: ''
-    // body: ''
-    // creator: this.props.user.id
-    // }
+    this.state = {
+      rating: '',
+      body: '',
+    // creator: this.props.user.id,
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -32,13 +31,26 @@ class ToiletShow extends React.Component {
     if (!this.props.toilet) {
       return null;
     }
+    this.state.toilet_id = this.props.toilet._id;
     return (
       <div>
         <div>
           {this.props.toilet.title}
           {this.props.toilet.address}
         </div>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="Comments"
+            value={this.state.body}
+            onChange={this.update('body')}
+            />
 
+          <input
+            type="submit"
+            value="Add Comment"
+            />
+        </form>
       </div>
     )
   }

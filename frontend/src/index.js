@@ -15,7 +15,6 @@ import Root from "./root.js";
 import * as serviceWorker from "./serviceWorker.js";
 
 const makeReact = () => {
-  console.log('makeReeeeeeeeeact')
   let store = configureStore();
   // Check for token
   if (localStorage.jwtToken && localStorage.jwtToken !== "undefined") {
@@ -41,8 +40,6 @@ const makeReact = () => {
 };
 
 window.marriage.then(() => {
-  console.log('marrrrrriage')
-  // debugger;
   if (document.readyState === 'loading') {
       document.addEventListener("DOMContentLoaded", makeReact);
     } else {

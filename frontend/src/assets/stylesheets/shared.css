@@ -4,7 +4,6 @@
     border-radius: 4px;
     box-shadow: 1px 1px 3px gray;
     color: black;
-    margin: 6px;
     font-family: Courier New, monospace;
     font-size: 14px;
 }
@@ -45,6 +44,21 @@
     cursor: pointer;
 }
 
+.btn-s {
+    width: 100px;
+    height: 30px;
+}
+
+.btn-m {
+    width: 150px;
+    height: 40px;
+}
+
+.btn-l {
+    width: 200px;
+    height: 50px;
+}
+
 .link-style {
     color: black;
     text-decoration: none;
@@ -57,4 +71,24 @@
 
 body {
     background: #F4F6F6;
+}
+
+.input-text {
+  width: 220px;
+  height: 15px;
+  padding: 9px;
+  border: 1px solid #85929E;
+  border-radius: 4px;
+  font-family: Courier New, monospace;
+  font-size: 16px;
+}
+
+.input-text:focus {
+    outline: none;
+    border: 1px solid #34495E;
+    background-color: rgb(218, 218, 218);
+}
+
+.m-6 {
+    margin: 6px;
 }

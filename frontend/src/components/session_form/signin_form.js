@@ -1,3 +1,4 @@
+import '../../assets/stylesheets/shared.css';
 import React from 'react';
 
 class SignInForm extends React.Component {
@@ -33,16 +34,22 @@ class SignInForm extends React.Component {
 
   render() {
     return (
-      <>
         <form className='signup-form' onSubmit={this.handleSubmit}>
           <h1>SIGN IN</h1>
-          { Object.values(this.props.errors) }
-          <input type='text' onChange={this.update('username')} value={this.state.username} placeholder='username'></input>
-          <input type='password' onChange={this.update('password')} value={this.state.password} placeholder='password'></input>
-          <button>Sign In</button>
+          <ul className='login-errors'>
+            {Object.values(this.props.errors).map(error => {
+              console.log(error)
+              return <li>{error}</li>
+            })}
+          </ul>
+          <input type='text' onChange={this.update('username')} 
+          value={this.state.username} placeholder='username'
+          className='input-text'></input>
+          <input type='password' onChange={this.update('password')} 
+          value={this.state.password} placeholder='password'
+          className='input-text'></input>
+          <button className='btn btn-m btn-secondary'>Sign In</button>
         </form>
-
-      </>
     )
   }
 }

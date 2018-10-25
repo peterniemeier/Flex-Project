@@ -8,37 +8,41 @@ import { receiveToiletPos } from '../../actions/map_actions';
 import { fetchToilets } from '../../util/toilet_api_util';
 
 
+const google = window.google;
 
 class Map extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+
+        }
     }
 
     componentDidMount() {
-        const google = window.google;
         const { fetchToilets} = this.props;
-        // if (google) {
-        const mapOptions = {
-            center: { lat: 37.7749, lng: -122.4194 },
-            zoom: 12
-        };
-        this.map = new google.maps.Map(
-            document.getElementById('map'),
-            mapOptions);
+        // if (this.state.google) {
+            const mapOptions = {
+                center: { lat: 37.7749, lng: -122.4194 },
+                zoom: 12
+            };
+            this.map = new google.maps.Map(
+                document.getElementById('map'),
+                mapOptions);
 
-        this.markerManager = new MarkerManager(this.map, this.props.history);
-        this.map.addListener('click', this.handleMapClick.bind(this));
-        this.map.addListener('idle', this.handleIdleMap.bind(this));
-        fetchToilets()
-        .then(() => {
-            this.markerManager.createMarkers(this.props.toilets);
-            const toiletId = this.props.match.params.toiletId;
-            if (toiletId) {
-              const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
-              this.map.setZoom(17);
-              this.map.setCenter(pos);
-            }
-        });
+            this.markerManager = new MarkerManager(this.map, this.props.history);
+            this.map.addListener('click', this.handleMapClick.bind(this));
+            this.map.addListener('idle', this.handleIdleMap.bind(this));
+            fetchToilets()
+            .then(() => {
+                this.markerManager.createMarkers(this.props.toilets);
+                const toiletId = this.props.match.params.toiletId;
+                if (toiletId) {
+                const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
+                this.map.setZoom(17);
+                this.map.setCenter(pos);
+                }
+            });
         // }
     }
 

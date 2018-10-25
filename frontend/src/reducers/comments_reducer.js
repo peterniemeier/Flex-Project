@@ -9,10 +9,8 @@ export default (state = {}, action) => {
   const newState = Object.assign({}, state)
 
   switch (action.type) {
-    case RECEIVE_TOILET:
-      return action.comments
     case RECEIVE_COMMENT:
-      return Object.assign(newState, {[action.comment.id]: action.comment})
+      return Object.assign(newState, {[action.comment.data._id]: action.comment})
     default:
       return state
   }

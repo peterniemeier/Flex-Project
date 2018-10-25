@@ -10,6 +10,7 @@ mongoose
 const port = process.env.PORT || 5000;
 const users = require('./routes/api/users');
 const toilets = require('./routes/api/toilets')
+const comments = require('./routes/api/comments')
 const passport = require('passport');
 require('./config/passport');
 
@@ -26,5 +27,6 @@ app.get('/', (req,res) => {
 
 app.use("/api/users", users);
 app.use("/api/toilets", toilets);
+app.use("/api/comments", comments);
 
 app.listen(port, () => console.log(`Server is running on port:${port}`));

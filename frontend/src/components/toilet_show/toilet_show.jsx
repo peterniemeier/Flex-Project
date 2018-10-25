@@ -17,6 +17,7 @@ class ToiletShow extends React.Component {
   }
 
   update(field) {
+    console.log(this.state)
     return(e) => {
       this.setState({[field]: e.target.value});
     }
@@ -45,6 +46,20 @@ class ToiletShow extends React.Component {
             value={this.state.body}
             onChange={this.update('body')}
             />
+
+          <div>
+            1
+            <input type="radio" name="rating" value="1" onChange={this.update('rating')} />
+            2
+            <input type="radio" name="rating" value="2" onChange={this.update('rating')} />
+            3
+            <input type="radio" name="rating" value="3" onChange={this.update('rating')} />
+            4
+            <input type="radio" name="rating" value="4" onChange={this.update('rating')} />
+            5
+            <input type="radio" name="rating" value="5" onChange={this.update('rating')} />
+
+          </div>
 
           <input
             type="submit"

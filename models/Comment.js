@@ -14,7 +14,7 @@ const CommentSchema = new Schema({
     type: Number,
     required: true
   },
-  toilet: {
+  toilet_id: {
     type: Schema.Types.ObjectId,
     ref: 'Toilet'
   }

@@ -32,7 +32,6 @@ class SignInForm extends React.Component {
   }
 
   render() {
-    // let errors = this.props.errors;
     return (
       <>
         <form className='signup-form' onSubmit={this.handleSubmit}>

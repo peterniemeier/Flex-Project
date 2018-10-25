@@ -4,7 +4,12 @@ import Link from 'react-router-dom'
 class ToiletShow extends React.Component {
   constructor(props) {
     super(props)
-    this.state = this.props.toilet;
+    // this.state = {
+    //   comment:
+    //  rating:
+    // user_id:
+    // }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -12,13 +17,33 @@ class ToiletShow extends React.Component {
     this.props.fetchToiletComments();
   }
 
+  update(field) {
+    return(e) => {
+      this.setState({[field]: e.target.value});
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createToiletComment(this.state)
+  }
 
   render() {
     return (
       <div>
-        {this.state.title}
-        <form>
+        {this.props.toilet.title}
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="Comments"
+            value={this.state.comment}
+            onChange={this.update('comment')}
+            />
 
+          <input
+            type="submit"
+            value="Add Comment"
+            />
         </form>
       </div>
     )

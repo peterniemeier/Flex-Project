@@ -20,7 +20,7 @@ class ToiletForm extends React.Component {
     return(e) => {
       this.setState({[field]: e.target.value});
     }
-}
+  }
 
   handleSubmit(e) {
     e.preventDefault();

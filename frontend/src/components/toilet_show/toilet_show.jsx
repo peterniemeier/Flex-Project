@@ -38,7 +38,7 @@ class ToiletShow extends React.Component {
           {this.props.toilet.title}
           {this.props.toilet.address}
         </div>
-        
+
       </div>
     )
   }

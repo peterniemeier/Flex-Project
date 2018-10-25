@@ -27,14 +27,14 @@ export const removeToilet = id => {
   }
 }
 
-export const receiveComments = comments => {
+export const receiveToiletComments = comments => {
   return {
     type: RECEIVE_COMMENTS,
     comments
   }
 }
 
-export const receiveComment = comment => {
+export const receiveToiletComment = comment => {
   return {
     type: RECEIVE_COMMENT,
     comment

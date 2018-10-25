@@ -44,7 +44,6 @@ export default class MarkerManager {
             });
 
             marker.addListener('click', () => {
-                debugger;
                 this.map.setZoom(17);
                 this.map.setCenter(marker.getPosition());
                 this.history.push(`/main/${toilet._id}`)

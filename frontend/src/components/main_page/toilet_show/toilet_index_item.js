@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class ToiletIndexItem extends Component {
 
   handleClick() {
-    this.props.history.push(`/main/${this.props.toilet.id}`);
+    this.props.history.push(`/main/${this.props.toilet._id}`);
   }
 
   render() {

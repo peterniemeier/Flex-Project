@@ -18,14 +18,16 @@ class MainPage extends React.Component {
         return (
             <div className='all-content'>
                 <div className='big-map'>
-                    <Map />
+                    <Map history={history}/>
                 </div>
-                <div className='toilet-index'>
+                <div className='toilet-sidebar'>
                     <ToiletCreator history={history}/>
                     <Switch >
-                        <Route path='/main/:toiletId' history={history}
-                            component={SelectedToilet} toilets={this.props.toilets}/>
-                        <Route path='/main' component={ToiletIndex} />
+                        <div className='toilet-index'>
+                            <Route path='/main/:toiletId' history={history}
+                                component={SelectedToilet} toilets={this.props.toilets}/>
+                            <Route path='/main' component={ToiletIndex} history={history}/>
+                        </div>
                     </Switch>
                 </div>
             </div>

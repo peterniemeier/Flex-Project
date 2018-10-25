@@ -7,9 +7,17 @@ const Toilet = require("../../models/Toilet");
 const keys = require('../../config/keys');
 const validateToiletInput = require('../../validations/toilet');
 
-router.get('/', (req,res) => {
-  Toilet.find().sort({date: -1}).then(toilets => res.json(toilets))
-  .catch(err => res.status(404).json({notoiletsfound: 'No toilets found'}))
+router.get('/', (req, res) => {
+  Toilet.find().sort({ date: -1 }).then(toilets => {
+    let result = {};
+
+    toilets.map(toilet => {
+      result[toilet.id] = toilet
+    })
+
+    res.json(result)
+  })
+    .catch(err => res.status(404).json({ notoiletsfound: 'No toilets found' }))
 });
 
 router.get("/:id", (req,res) => {

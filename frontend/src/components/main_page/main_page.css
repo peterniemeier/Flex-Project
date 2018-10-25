@@ -1,27 +1,29 @@
 .big-map {
-    height: 600px;
+    height: 500px;
     width: 70%;
+    margin: 10px;
 }
 
 .all-content {
     display: flex;
 }
 
-.toilet-index {
+.toilet-sidebar {
     display: flex;
     flex-direction: column;
+    padding-top: 10px;
+    margin: 0 15px;
 }
 
 .toilet-create-buttons {
     display: flex;
     flex-direction: column;
-    padding: 5px;
 }
 
 .button-row {
     display: flex;
     align-items: center;
-    padding: 3px;
+    padding-bottom: 3px;
     height: 45px;
     margin-bottom: 10px;
 }
@@ -44,4 +46,35 @@
 .error {
     color: red;
     border: 1px solid red !important;
+}
+
+.toilet-index {
+    margin-left: 6px;
+    border: 1px solid #85929E;
+    border-radius: 4px;
+    overflow-y: scroll;
+    max-height: 382px;
+}
+
+
+.index-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #85929E;
+    padding: 10px;
+    min-height: 90px;
+}
+
+.index-item > p {
+    padding: 5px 0;
+    margin-bottom: 5px;
+}
+.index-item > strong {
+    padding: 5px 0;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.index-item:last-of-type {
+    border-bottom: 1px solid transparent;
 }

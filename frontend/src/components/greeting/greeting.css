@@ -1,0 +1,16 @@
+.user-nav > nav {
+    display: flex;
+    align-items: center;
+}
+
+.user-nav > nav > button {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 10px;
+    width: 90px;
+}
+
+.user-nav > nav > p {
+    width: 120px;
+    text-align: center;
+}

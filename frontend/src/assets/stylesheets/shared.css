@@ -1,6 +1,6 @@
 .btn {
     padding: 10px 10px;
-    min-height: 30px;
+    min-height: 40px;
     border-radius: 4px;
     box-shadow: 1px 1px 3px gray;
     color: black;
@@ -24,7 +24,7 @@
 }
 
 .btn-submit {
-    background-color: #CFCDC5;
+    background-color: #fff;
     border: 1px solid #85929E;
 }
 
@@ -39,14 +39,15 @@
 }
 
 .btn-submit:hover {
-    background-color: rgb(150, 149, 145);
+    background-color: rgb(213, 213, 212);
     border: 1px solid #85929E;
     cursor: pointer;
 }
 
 .btn-s {
     width: 100px;
-    height: 30px;
+    height: 40px;
+
 }
 
 .btn-m {
@@ -60,13 +61,17 @@
 }
 
 .link-style {
-    color: black;
+    color: #E5E8E8;
     text-decoration: none;
 }
 
 .link-style:hover {
-    color: #D0D3D4;
+    color: #fff;
     cursor: pointer;
+}
+
+.active {
+    color: #fff;
 }
 
 body {

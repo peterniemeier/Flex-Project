@@ -4,6 +4,7 @@ import Link from 'react-router-dom'
 class ToiletShow extends React.Component {
   constructor(props) {
     super(props)
+    this.state = this.props.toilet;
   }
 
   componentDidMount() {
@@ -11,9 +12,15 @@ class ToiletShow extends React.Component {
     this.props.fetchToiletComments();
   }
 
+
   render() {
     return (
-      <h1>Hi</h1>
+      <div>
+        {this.state.title}
+        <form>
+
+        </form>
+      </div>
     )
   }
 }

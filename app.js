@@ -8,6 +8,7 @@ const passport = require('passport');
 require('./config/passport')(passport);
 const port = process.env.PORT || 5000;
 const toilets = require("./routes/api/toilets");
+const comments = require('./routes/api/comments');
 
 
 mongoose
@@ -28,5 +29,6 @@ app.use("/api/users", users);
 
 
 app.use("/api/toilets", toilets);
+app.use("/api/comments", comments);
 
 app.listen(port, () => console.log(`Server is running on port: ${port}`));

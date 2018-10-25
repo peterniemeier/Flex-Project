@@ -14,7 +14,7 @@ router.get('/', (req,res) => {
 
 router.get("/:id", (req,res) => {
   Toilet.findById(req.params.id).then(toilet => res.json(toilet))
-  .catch(err => res.status(404).json({notoiletfound: 'No toilet found'}))
+  .catch(err => {})
 });
 
 router.post('/create', (req,res) => {

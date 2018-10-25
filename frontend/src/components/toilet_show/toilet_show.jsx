@@ -31,7 +31,10 @@ class ToiletShow extends React.Component {
   render() {
     return (
       <div>
-        {this.props.toilet.title}
+        <div>
+          {this.props.toilet.title}
+          {this.props.toilet.location}
+        </div>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

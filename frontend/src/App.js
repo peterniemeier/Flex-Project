@@ -1,4 +1,5 @@
 import './assets/stylesheets/reset.css';
+import './assets/stylesheets/modal.css';
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
 import NavBar from './components/navbar/navbar_container';

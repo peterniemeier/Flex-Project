@@ -35,9 +35,9 @@ class SignInForm extends React.Component {
     // let errors = this.props.errors;
     return (
       <>
-        <h1>SIGN IN</h1>
-        { Object.values(this.props.errors) }
         <form className='signup-form' onSubmit={this.handleSubmit}>
+          <h1>SIGN IN</h1>
+          { Object.values(this.props.errors) }
           <input type='text' onChange={this.update('username')} value={this.state.username} placeholder='username'></input>
           <input type='password' onChange={this.update('password')} value={this.state.password} placeholder='password'></input>
           <button>Sign In</button>

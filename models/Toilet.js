@@ -14,7 +14,7 @@ const ToiletSchema = new Schema({
     type: String,
     required: true
   },
-  creator_id: {
+  creator: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
@@ -25,6 +25,7 @@ const ToiletSchema = new Schema({
   address: {
     type: String,
   }
+
 
 });
 

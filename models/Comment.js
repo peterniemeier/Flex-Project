@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CommentSchema = new Schema({
-  creator_id: {
+  creator: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
@@ -13,6 +13,10 @@ const CommentSchema = new Schema({
   rating: {
     type: Number,
     required: true
+  },
+  toilet: {
+    type: Schema.Types.ObjectId,
+    ref: 'Toilet'
   }
 
 });

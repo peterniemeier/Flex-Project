@@ -10,20 +10,20 @@ module.exports = function validateToiletInput(data) {
   data.address = !isEmpty(data.address) ? data.address : '';
 
 
-  // if (!Validator.isEmpty(data.lat)) {
-  //   errors.email = 'Lat is required';
-  // }
-  // if (!Validator.isEmpty(data.lng)) {
-  //   errors.email = 'Lng is required';
-  // }
-  //
-  // if (!Validator.isEmpty(data.title)) {
-  //   errors.email = 'Title is required';
-  // }
-  //
-  // if (!Validator.isEmpty(data.creator_id)) {
-  //   errors.email = 'Creator_id is required';
-  // }
+  if (Validator.isEmpty(data.lat)) {
+    errors.email = 'Lat is required';
+  }
+  if (Validator.isEmpty(data.lng)) {
+    errors.email = 'Lng is required';
+  }
+
+  if (Validator.isEmpty(data.title)) {
+    errors.email = 'Title is required';
+  }
+
+  if (Validator.isEmpty(data.creator)) {
+    errors.email = 'Creator_id is required';
+  }
 
   return {
     errors,

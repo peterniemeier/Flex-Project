@@ -19,20 +19,10 @@ export const setAuthToken = token => {
 };
 
 export const createToilet = (toilet) => dispatch => {
-  axios
+return axios
     .post('/api/toilets/create', toilet)
     .then(res => {
-      // Save to localStorage
-      const { token } = res.data;
-      // Set token to ls
-      localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
-      // gets all toilets
-
-      dispatch(ToiletActions.receiveToilet(decoded));
+      dispatch(ToiletActions.receiveToilet(res));
     })
     .catch(err =>
       dispatch({
@@ -43,19 +33,11 @@ export const createToilet = (toilet) => dispatch => {
 };
 
 export const updateToilet = (id) => dispatch => {
-  axios
+return axios
     .patch(`/api/toilets/${id}`)
     .then(res => {
-      // Save to localStorage
-      const { token } = res.data;
-      // Set token to ls
-      localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(ToiletActions.receiveToilet(decoded));
+      dispatch(ToiletActions.receiveToilet(res));
     })
     .catch(err =>
       dispatch({
@@ -66,19 +48,11 @@ export const updateToilet = (id) => dispatch => {
 };
 
 export const removeToilet = (id) => dispatch => {
-  axios
+return axios
     .delete('/api/toilets/destroy', id)
     .then(res => {
-      // Save to localStorage
-      const { token } = res.data;
-      // Set token to ls
-      localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(ToiletActions.receiveToilet(decoded));
+      dispatch(ToiletActions.receiveToilet(res));
     })
     .catch(err =>
       dispatch({
@@ -89,19 +63,11 @@ export const removeToilet = (id) => dispatch => {
 };
 
 export const fetchToilets = () => dispatch => {
-  axios
-    .post('/api/toilets')
+return axios
+    .get('/api/toilets')
     .then(res => {
-      // Save to localStorage
-      const { token } = res.data;
-      // Set token to ls
-      localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
       // gets all toilets
-      dispatch(ToiletActions.receiveToilets(decoded));
+      dispatch(ToiletActions.receiveToilets(res));
     })
     .catch(err =>
       dispatch({
@@ -112,19 +78,39 @@ export const fetchToilets = () => dispatch => {
 };
 
 export const fetchToilet = (id) => dispatch => {
-  axios
-    .post(`/api/toilets/${id}`)
+return axios
+    .get(`/api/toilets/${id}`)
     .then(res => {
-      // Save to localStorage
-      const { token } = res.data;
-      // Set token to ls
-      localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
-      setAuthToken(token);
-      // Decode token to get user data
-      const decoded = jwt_decode(token);
       // gets the specified toilet
-      dispatch(ToiletActions.receiveToilet(decoded));
+      dispatch(ToiletActions.receiveToilet(res));
+    })
+    .catch(err =>
+      {}
+    );
+};
+
+export const createToiletComment = (comment) => dispatch => {
+return axios
+    .post('/api/comments/create', comment)
+    .then(res => {
+      dispatch(ToiletActions.receiveToiletComment(res));
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+//fetchToiletComments' id is the id of the toilet whose comments
+//we want to fetch.
+export const fetchToiletComments = (id) => dispatch => {
+return axios
+    .get(`/api/comments/${id}`)
+    .then(res => {
+      // gets the specified toilet
+      dispatch(ToiletActions.receiveToiletComments(res));
     })
     .catch(err =>
       dispatch({

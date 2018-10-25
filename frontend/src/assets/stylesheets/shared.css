@@ -1,9 +1,12 @@
 .btn {
     padding: 10px 10px;
+    min-height: 30px;
     border-radius: 4px;
     box-shadow: 1px 1px 3px gray;
     color: black;
-    margin: 4px;
+    margin: 6px;
+    font-family: Courier New, monospace;
+    font-size: 14px;
 }
 
 .btn:focus {
@@ -39,6 +42,7 @@
 .btn-submit:hover {
     background-color: rgb(150, 149, 145);
     border: 1px solid #85929E;
+    cursor: pointer;
 }
 
 .link-style {

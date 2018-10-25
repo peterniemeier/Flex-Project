@@ -9,6 +9,7 @@ import GreetingContainer from './components//greeting/greeting_container';
 import SignUpFormContainer from './components/session_form/signup_form_container';
 import SignInFormContainer from './components/session_form/signin_form_container';
 import Modal from './components/session_form/modal';
+import ToiletShowContainer from './components/toilet_show/toilet_show_container';
 
 
 class App extends Component {
@@ -20,9 +21,10 @@ class App extends Component {
         <NavBar />
         <div className="App">
           <Route exact path='/toilets/new' component={ToiletFormContainer} />
+          <Route exact path='/toilets/:toiletId' component={ToiletShowContainer} />
           <Route exact path='/signup' component={SignUpFormContainer} />
           <Route exact path='/signin' component={SignInFormContainer} />
-          <Route exact path='/' component={MainPage}/>
+          <Route path='/main' component={MainPage} />
         </div>
       </>
     );

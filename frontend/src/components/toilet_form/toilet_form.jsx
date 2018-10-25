@@ -8,29 +8,28 @@ class ToiletForm extends React.Component {
       lat: this.props.lat,
       lng: this.props.lng,
       title: this.props.title,
-      // address: this.props.address,
-      // creator_id: this.prop.creator_id,
+      address: this.props.address,
+      comments: this.props.comments,
+      // creator: this.prop.creator,
       date: new Date(),
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
-    console.log(this.state)
     return(e) => {
       this.setState({[field]: e.target.value});
     }
-}
+  }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state).then(() => this.props.history.push('/'))
+    this.props.action(this.state).then(() => this.props.history.push('/main'))
   }
 
 
   render() {
-    console.log(this.state);
-    console.log(this.props);
+
     return (
 
       <div>

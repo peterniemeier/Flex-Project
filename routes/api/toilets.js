@@ -22,15 +22,13 @@ router.post('/create', (req,res) => {
     lat: req.body.lat,
     lng: req.body.lng,
     title: req.body.title,
-    // creator_id: req.body.user.id
+    address: req.body.address,
+    // creator: req.user.id,
     date: req.body.date
   })
-  newToilet.save().then(
-    res.json({
-      success:true,
-
-    })
-  )
+  newToilet.save().then(() => {
+    res.json(newToilet)
+  });
 })
 
   router.delete('/destroy', (req,res) => {

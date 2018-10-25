@@ -3,28 +3,32 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
 const db = require('./config/keys').mongoURI;
+const users = require('./routes/api/users');
+const passport = require('passport');
+require('./config/passport')(passport);
+const port = process.env.PORT || 5000;
+const toilets = require("./routes/api/toilets");
+const comments = require('./routes/api/comments');
+
+
 mongoose
   .connect(db)
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
-const port = process.env.PORT || 5000;
-const users = require('./routes/api/users');
-const toilets = require('./routes/api/toilets')
-const passport = require('passport');
-require('./config/passport');
 
-// app.use((req, res, next) => {
-// next();
-// });
 app.use(passport.initialize());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req,res) => {
-  res.send('Shazam!');
+  // res.send('feebo');
+  res.json({hi: 'feebo'});
 });
 
 app.use("/api/users", users);
-app.use("/api/toilets", toilets);
 
-app.listen(port, () => console.log(`Server is running on port:${port}`));
+
+app.use("/api/toilets", toilets);
+app.use("/api/comments", comments);
+
+app.listen(port, () => console.log(`Server is running on port: ${port}`));

@@ -17,7 +17,7 @@ router.post('/create', (req,res) => {
   newComment.save().then(() => {
     res.json(newComment)
   });
-})
+});
 
 router.get("/:id", (req,res) => {
   Comment.findById(req.params.toilet.id).then(comments => res.json(comment))

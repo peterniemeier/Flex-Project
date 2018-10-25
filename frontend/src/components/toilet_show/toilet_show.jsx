@@ -7,7 +7,7 @@ class ToiletShow extends React.Component {
     this.state = {
       rating: '',
       body: '',
-    // creator: this.props.user.id,
+      creator: this.props.creator,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }

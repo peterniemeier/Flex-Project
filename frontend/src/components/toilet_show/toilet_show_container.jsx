@@ -7,7 +7,7 @@ import {fetchToilet, createToiletComment} from '../../util/toilet_api_util';
 const mapStateToProps = (state, ownProps) => {
   return {
     toilet: state.entities.toilets[ownProps.match.params.toiletId],
-    // Users here to add comments
+    creator: state.session.id,
   }
 }
 

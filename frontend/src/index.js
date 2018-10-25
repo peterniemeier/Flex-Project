@@ -8,21 +8,13 @@
 // window.dispatch = store.dispatch;
 // window.getState = store.getState;
 
-<<<<<<< HEAD
 // document.addEventListener('DOMContentLoaded', () => {
 //     ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 // })
-=======
-document.addEventListener('DOMContentLoaded', () => {
-    
-    ReactDOM.render(<Root store={store} />, document.getElementById('root'));
-})
->>>>>>> 78843e42cda36522907b3aa0216644d6eb86a11e
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-<<<<<<< HEAD
 // serviceWorker.unregister();
 
 
@@ -62,6 +54,3 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={store} />, root);
   serviceWorker.unregister();
 });
-=======
-serviceWorker.unregister();
->>>>>>> 78843e42cda36522907b3aa0216644d6eb86a11e

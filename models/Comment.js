@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Toilet = require("Toilet");
+const Toilet = require("./Toilet");
 
 const CommentSchema = new Schema({
   creator: {
@@ -26,7 +26,7 @@ CommentSchema.post("save", function(saved){
   console.log("Comment didn't make it")
   Toilet.findByIdAndUpdate(this.toilet_id, {$push:{comments: this}})
   .then( () => saved());
-}
+});
 
 
 module.exports = Comment = mongoose.model('comments', CommentSchema);

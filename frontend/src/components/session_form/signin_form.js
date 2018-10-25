@@ -21,10 +21,18 @@ class SignInForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state);
+    this.props.processForm(this.state).then( (success) =>  { 
+      if (success.type === "RECEIVE_CURRENT_USER") {
+        this.props.closeModal();
+      } else {
+        console.log('error')
+      }
+    });
+
   }
 
   render() {
+    // console.log(this.props)
     return (
       <>
         <h1>Hello from the Sign In Form</h1>

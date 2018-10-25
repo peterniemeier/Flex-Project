@@ -5,16 +5,16 @@ class ToiletShow extends React.Component {
   constructor(props) {
     super(props)
     // this.state = {
-    //   comment:
-    //  rating:
-    // user_id:
+    //   toilet_id: this.props.toilet._id
+    //  rating: ''
+    // body: ''
+    // creator: this.props.user.id
     // }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchToilet(this.props.match.params.toiletId);
-    this.props.fetchToiletComments();
   }
 
   update(field) {
@@ -29,25 +29,16 @@ class ToiletShow extends React.Component {
   }
 
   render() {
+    if (!this.props.toilet) {
+      return null;
+    }
     return (
       <div>
         <div>
           {this.props.toilet.title}
-          {this.props.toilet.location}
+          {this.props.toilet.address}
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Comments"
-            value={this.state.comment}
-            onChange={this.update('comment')}
-            />
-
-          <input
-            type="submit"
-            value="Add Comment"
-            />
-        </form>
+        
       </div>
     )
   }

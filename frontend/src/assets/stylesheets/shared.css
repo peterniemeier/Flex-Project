@@ -74,6 +74,19 @@
     color: #fff;
 }
 
+.btn-link {
+    color:white;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    background: #AAB7B8;
+}
+
+.btn-link:hover {
+    background: rgb(125, 139, 140);
+}
+
 body {
     background: #F4F6F6;
 }

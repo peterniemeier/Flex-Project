@@ -10,7 +10,6 @@ class ToiletForm extends React.Component {
       title: this.props.title,
       address: this.props.address,
       comments: this.props.comments,
-      // creator: this.prop.creator,
       date: new Date(),
     }
     this.handleSubmit = this.handleSubmit.bind(this);

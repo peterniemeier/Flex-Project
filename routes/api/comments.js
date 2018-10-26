@@ -20,7 +20,7 @@ router.post('/create', (req,res) => {
 });
 
 router.get("/:id", (req,res) => {
-  Comment.findById(req.params.toilet.id).then(comments => res.json(comment))
+  Comment.findById(req.params.id).then(comments => res.json(comment))
   .catch(err => res.status(404).json({nocommentfound: 'No comment found'}))
 });
 

@@ -105,6 +105,7 @@ export const fetchToiletComments = (id) => dispatch => {
 return axios
     .get(`/api/comments/${id}`)
     .then(res => {
+      console.log(res)
       // gets the specified toilet
       dispatch(ToiletActions.receiveToiletComments(res));
     })

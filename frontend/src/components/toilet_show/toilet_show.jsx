@@ -53,12 +53,13 @@ class ToiletShow extends React.Component {
         <form className='comment-form' onSubmit={this.handleSubmit}>
           <textarea
             className='input-text comment-textarea'
-            placeholder="Comments"
+            placeholder="Add Comment"
             value={this.state.body}
             onChange={this.update('body')}
             />
 
           <div className='ratings'>
+            <h2>Rating</h2>
             <label> <span>1</span>
               <input type="radio" name="rating" value="1" onChange={this.update('rating')} />
             </label>

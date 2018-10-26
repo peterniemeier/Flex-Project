@@ -95,7 +95,7 @@ return axios
     .post('/api/comments/create', comment)
     .then(res => {
 
-      dispatch(ToiletActions.receiveToiletComment(res));
+      dispatch(ToiletActions.receiveToilet(res));
     })
     .catch(err =>
       {}

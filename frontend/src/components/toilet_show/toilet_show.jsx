@@ -37,7 +37,6 @@ class ToiletShow extends React.Component {
   }
 
   returnComments() {
-
     const comments = this.props.toilet.comments.map((comment) => {
       return (
         <ToiletCommentItem
@@ -111,8 +110,7 @@ class ToiletShow extends React.Component {
           <p>{this.props.toilet.address}</p>
         </div>
 
-        {this.showForm()}
-        <ul>{this.returnComments()}</ul>
+
       </div>;
   }
 }

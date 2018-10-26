@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { setCenter } from "../../actions/map_actions";
 import { openModal } from "../../actions/modal_actions";
@@ -44,4 +45,4 @@ const mDtP = dispatch => ({
     openModal: modal => dispatch(openModal(modal))
 });
 
-export default connect(null, mDtP)(SearchBar);
+export default withRouter(connect(null, mDtP)(SearchBar));

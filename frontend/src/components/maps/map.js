@@ -47,11 +47,15 @@ class Map extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        const { maps } = this.props;
         const toiletId = nextProps.match.params.toiletId;
         if (toiletId && toiletId !== this.props.match.params.toiletId) {
             const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
             this.map.setZoom(17);
             this.map.setCenter(pos);
+        }
+        if (maps.center !== nextProps.maps.center) {
+            this.map.setCenter(nextProps.maps.center)
         }
     }
 

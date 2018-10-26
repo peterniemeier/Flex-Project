@@ -4,7 +4,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import SignInFormContainer from './signin_form_container';
 import SignUpFormContainer from './signup_form_container';
-// import { clearErrors } from '../actions/session_actions';
+import { clearErrors } from '../../util/session_api_util';
 
 function Modal({ modal, closeModal, clearErrors }) {
   if (!modal) {
@@ -13,7 +13,7 @@ function Modal({ modal, closeModal, clearErrors }) {
 
   const closeSession = () => {
     closeModal();
-    // clearErrors();
+    clearErrors();
   }
 
   let component;
@@ -46,7 +46,7 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     closeModal: () => dispatch(closeModal()),
-    // clearErrors: () => dispatch(clearErrors())
+    clearErrors: () => dispatch(clearErrors())
   };
 };
 

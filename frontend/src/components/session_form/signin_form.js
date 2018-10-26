@@ -39,34 +39,26 @@ class SignInForm extends React.Component {
   }
 
   render() {
-    return (
-      <form className="signup-form" onSubmit={this.handleSubmit}>
-        <h1>SIGN IN</h1>
+    return <form className="signup-form" onSubmit={this.handleSubmit}>
+        <header>
+          <h1>SIGN IN</h1>
+          <div className='form-link-container'>
+            <span>New to Porcelain:</span>
+            <span className="form-link" onClick={this.otherForm}>
+              Sign Up
+            </span>
+          </div>
+        </header>
         <ul className="login-errors">
           {Object.values(this.props.errors).map(error => {
             console.log(error);
             return <li>{error}</li>;
           })}
         </ul>
-        <input
-          type="text"
-          onChange={this.update("username")}
-          value={this.state.username}
-          placeholder="username"
-          className="input-text"
-        />
-        <input
-          type="password"
-          onChange={this.update("password")}
-          value={this.state.password}
-          placeholder="password"
-          className="input-text"
-        />
+        <input type="text" onChange={this.update("username")} value={this.state.username} placeholder="username" className="input-text" />
+        <input type="password" onChange={this.update("password")} value={this.state.password} placeholder="password" className="input-text" />
         <button className="btn btn-m btn-secondary">Sign In</button>
-        <span>New to Porcelain?</span>
-        <button onClick={this.otherForm}>Create an account</button>
-      </form>
-    );
+      </form>;
   }
 }
 

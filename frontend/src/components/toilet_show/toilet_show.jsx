@@ -14,7 +14,6 @@ class ToiletShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchToilet(this.props.match.params.toiletId);
     this.props.fetchToiletComments(this.props.match.params.toiletId);
   }

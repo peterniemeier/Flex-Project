@@ -14,6 +14,7 @@ class SignupForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.otherForm = this.otherForm.bind(this);
   }
 
   update(field) {
@@ -27,11 +28,18 @@ class SignupForm extends React.Component {
     this.props.processForm(this.state).then((success) => {
       if (success.type === "RECEIVE_CURRENT_USER") {
         this.props.closeModal();
+        this.props.history.push('/main')
       } else {
         console.log('failed to sign up')
       }
     });
   }
+
+  otherForm() {
+    this.props.clearErrors();
+    this.props.otherForm();
+  }
+
 
   render() {
     return (
@@ -57,6 +65,8 @@ class SignupForm extends React.Component {
           value={this.state.passwor2} placeholder='repeat password'
           className='input-text'></input>
           <button className='btn btn-secondary btn-l'>Sign Up</button>
+          <span>Already have an account?</span>
+          <button onClick={this.otherForm}>Sign in</button>
         </form>
     )
   }

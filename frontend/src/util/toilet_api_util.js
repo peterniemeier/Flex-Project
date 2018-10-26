@@ -100,19 +100,19 @@ return axios
     );
 };
 
-//fetchToiletComments' id is the id of the toilet whose comments
-//we want to fetch.
-// export const fetchToiletComments = (id) => dispatch => {
-// return axios
-//     .get(`/api/comments/${id}`)
-//     .then(res => {
-//       // gets the specified toilet
-//       dispatch(ToiletActions.receiveToiletComments(res));
-//     })
-//     .catch(err =>
-//       dispatch({
-//         type: GET_ERRORS,
-//         payload: err.response.data
-//       })
-//     );
-// };
+
+export const fetchToiletComments = (id) => dispatch => {
+return axios
+    .get(`/api/comments/${id}`)
+    .then(res => {
+      console.log(res)
+      // gets the specified toilet
+      dispatch(ToiletActions.receiveToiletComments(res));
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};

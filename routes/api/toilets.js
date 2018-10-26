@@ -33,7 +33,9 @@ router.post('/create', (req,res) => {
     lat: req.body.lat,
     lng: req.body.lng,
     title: req.body.title,
-    date: req.body.date
+    creator: req.body.creator,
+    date: req.body.date,
+    address: req.body.address,
   })
   newToilet.save().then(() => {
     res.json(newToilet)

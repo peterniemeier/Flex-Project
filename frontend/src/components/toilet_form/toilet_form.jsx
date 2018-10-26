@@ -28,9 +28,11 @@ class ToiletForm extends React.Component {
 
 
   render() {
-
+    if (!this.props.creator) {
+      return null;
+    }
+    this.state.creator = this.props.creator;
     return (
-
       <div>
         <form onSubmit={this.handleSubmit}>
           <input

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { registerUser, clearErrors } from "../../util/session_api_util";
 import SignUpForm from "./signup_form";
 import { closeModal, openModal } from "../../actions/modal_actions";
- 
+import { withRouter } from 'react-router';
 
-const msp = ({ errors }) => {
+const msp = ({ errors }, ownProps) => {
   return {
     errors: errors.session,
     formType: "signup",
@@ -23,4 +23,4 @@ const mdp = dispatch => {
   };
 };
 
-export default connect(msp, mdp)(SignUpForm);
+export default withRouter(connect(msp, mdp)(SignUpForm));

@@ -20,8 +20,8 @@ class App extends Component {
           <Route exact path='/main/' component={MainPage}/>
           <Route exact path='/toilets/new' component={ToiletFormContainer} />
           <Route exact path='/toilets/:toiletId' component={ToiletShowContainer} />
-          <Route exact path='/signup' component={SignUpFormContainer} />
-          <Route exact path='/signin' component={SignInFormContainer} />
+          {/* <Route exact path='/signup' component={SignUpFormContainer} />
+          <Route exact path='/signin' component={SignInFormContainer} /> */}
       </div>
     );
   }

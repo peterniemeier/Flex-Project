@@ -26,6 +26,7 @@ class SignInForm extends React.Component {
     this.props.processForm(this.state).then(success => {
       if (success.type === "RECEIVE_CURRENT_USER") {
         this.props.closeModal();
+        this.props.history.push("/main");
       } else {
         console.log("failed to sign in");
       }

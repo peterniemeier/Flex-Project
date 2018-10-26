@@ -8,7 +8,7 @@ import SignUpFormContainer from './components/session_form/signup_form_container
 import SignInFormContainer from './components/session_form/signin_form_container';
 import Modal from './components/session_form/modal';
 import ToiletShowContainer from './components/toilet_show/toilet_show_container';
-
+import Splash from './components/splash/splash';
 
 class App extends Component {
   render() { 
@@ -16,6 +16,7 @@ class App extends Component {
       <div className="App">
           <Modal />
           <NavBar />
+          <Route exact path='/' component={Splash} />
           <Route path='/main/:toiletId' component={MainPage} />
           <Route exact path='/main/' component={MainPage}/>
           <Route exact path='/toilets/new' component={ToiletFormContainer} />

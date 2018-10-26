@@ -17,15 +17,7 @@
     flex-direction: column;
 }
 
-.button-row {
-    display: flex;
-    align-items: center;
-    padding-bottom: 3px;
-    height: 45px;
-    margin-bottom: 10px;
-}
-
-.button-row > p {
+.toilet-create-label {
     display: flex;
     border: 1px solid #85929E;
     border-radius: 4px;
@@ -33,6 +25,15 @@
     height: 100%;
     align-items: center;
     width: 250px;
+    font-size: 16px;
+}
+
+.button-row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 3px;
+    height: 45px;
+    margin-bottom: 10px;
 }
 
 .button-row > .btn {

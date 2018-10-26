@@ -1,0 +1,8 @@
+.splash-container {
+    width: 66.5%;
+}
+
+.splash-container > img {
+    width: 150%;
+    height: 90%;
+}

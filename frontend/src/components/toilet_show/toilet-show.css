@@ -20,12 +20,12 @@
     margin: 0 25px;
 }
 
-h1 {
+.toilet-info h1 {
     font-size: 40px;
     margin: 10px 0;
 }
 
-p {
+.toilet-info p {
     font-size: 20px;
 }
 
@@ -45,7 +45,7 @@ p {
 .ratings > h2 {
     font-size: 20px;
     margin-bottom: 10px;
-
+    
 }
 
 

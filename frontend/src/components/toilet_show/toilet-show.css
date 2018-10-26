@@ -49,4 +49,24 @@
     
 }
 
+.comments-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.toilet-comment-item {
+    border-bottom: 1px solid black;
+    padding: 7px;
+}
+.toilet-comment-item h1 {
+    font-size: 20px;
+}
+.toilet-comment-item p {
+    background: white;
+    padding: 3px;
+}
+.toilet-comment-item span {
+
+}
+
 

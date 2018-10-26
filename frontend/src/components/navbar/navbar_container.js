@@ -13,7 +13,7 @@ export class NavBar extends Component {
         <Link to="/" className="link-style">
           <img className="icon" src="https://image.flaticon.com/icons/svg/1175/1175936.svg" />
         </Link>
-        <Link to="/" className="link-style active home">
+        <Link to="/main" className="link-style active home">
           Home
         </Link>
         <div className="nav-links">

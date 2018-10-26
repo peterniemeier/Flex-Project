@@ -8,8 +8,6 @@ const keys = require('../../config/keys');
 const validateCommentInput = require('../../validations/comment');
 
 router.post('/create', (req,res) => {
-  console.log(req);
-
   const newComment = new Comment({
     creator: req.body.creator,
     body: req.body.body,
@@ -22,9 +20,7 @@ router.post('/create', (req,res) => {
   })
     Toilet.findById(req.body.toilet_id)
     .then(toilet => {
-      console.log(newComment);
       toilet.comments.unshift(newComment);
-      console.log(toilet);
       toilet.save();
     })
     .catch(err => console.error(err))

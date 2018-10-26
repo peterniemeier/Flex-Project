@@ -12,8 +12,7 @@ const msp = ({ session }) => {
 const mdp = dispatch => ({
   logout: () => dispatch(logoutUser()),
   login: (user) => dispatch(loginUser(user)),
-  openModal: modal => dispatch(openModal(modal))
-  
+  openModal: modal => dispatch(openModal(modal)),
 });
 
 export default connect(msp, mdp)(Greeting);

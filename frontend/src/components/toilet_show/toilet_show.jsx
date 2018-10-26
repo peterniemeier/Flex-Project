@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'react-router-dom'
+import ToiletCommentItem from './toilet_comment_item';
 
 class ToiletShow extends React.Component {
   constructor(props) {
@@ -7,13 +8,15 @@ class ToiletShow extends React.Component {
     this.state = {
       rating: '',
       body: '',
-      creator: this.props.creator,
+      creator: this.props.creator.username,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
+    debugger;
     this.props.fetchToilet(this.props.match.params.toiletId);
+    this.props.fetchToiletComments(this.props.match.params.toiletId);
   }
 
   update(field) {
@@ -25,20 +28,40 @@ class ToiletShow extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createToiletComment(this.state)
+    this.props.createToiletComment(this.state).then(() => console.log('success'))
   }
+
+  returnComments() {
+
+    const comments = this.props.toilet.comments.map((comment) => {
+      return (
+        <ToiletCommentItem
+          comment={comment}
+          />
+      )
+    })
+    return comments;
+  }
+
+
+
 
   render() {
     if (!this.props.toilet) {
       return null;
     }
     this.state.toilet_id = this.props.toilet._id;
+
     return (
       <div>
         <div>
           {this.props.toilet.title}
           {this.props.toilet.address}
         </div>
+        <ul>
+          {this.returnComments()}
+        </ul>
+
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

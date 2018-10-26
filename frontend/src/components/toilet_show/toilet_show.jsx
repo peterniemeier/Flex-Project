@@ -46,6 +46,11 @@ class ToiletShow extends React.Component {
     return comments;
   }
 
+
+
+
+
+
   render() {
     if (!this.props.toilet) {
       return null;
@@ -54,6 +59,7 @@ class ToiletShow extends React.Component {
     if (this.props.toilet.ratingsSum != NaN) {
       avgRating = this.props.toilet.ratingsSum / 2
     }
+
 
     this.state.toilet_id = this.props.toilet._id;
 
@@ -69,6 +75,7 @@ class ToiletShow extends React.Component {
         <ul>
           {this.returnComments()}
         </ul>
+
         <form className="comment-form" onSubmit={this.handleSubmit}>
           <textarea className="input-text comment-textarea" placeholder="Add Comment" value={this.state.body} onChange={this.update("body")} />
 

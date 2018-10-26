@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import '../../assets/stylesheets/shared.css';
 import './toilet-show.css';
@@ -58,7 +58,7 @@ class ToiletShow extends React.Component {
 
     return <div className="all-content">
         <div className="static-map">
-          <img src={makeMapUrl(this.props.toilet)} />
+          <img alt='' src={makeMapUrl(this.props.toilet)} />
         </div>
         <div className="toilet-info">
           <h1>{this.props.toilet.title}</h1>

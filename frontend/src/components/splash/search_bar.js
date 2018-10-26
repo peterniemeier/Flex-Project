@@ -17,7 +17,7 @@ export class SearchBar extends Component {
     }
 
     search(event) {
-        const { setCenter, history } = this.props;
+        const { setCenter, history, match } = this.props;
         event.preventDefault();
         if (this.autocomplete.getPlace()) {
             const location = this.autocomplete.getPlace().geometry.location;
@@ -26,7 +26,9 @@ export class SearchBar extends Component {
                 lng: location.lng(),
             }
             setCenter(latLng);
-            history.push('/main');
+            if (match.path !== '/main/') {
+                history.push('/main');
+            }
         }
     }
 

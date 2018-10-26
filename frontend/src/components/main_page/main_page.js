@@ -1,7 +1,7 @@
 import React from 'react';
 import "./main_page.css";
 import "../../assets/stylesheets/shared.css";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Map from '../maps/map';
 import ToiletCreator from './toilet_creator';
@@ -10,10 +10,6 @@ import SelectedToilet from './toilet_show/selected_toilet';
 import SearchBar from '../splash/search_bar';
 
 class MainPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { history } = this.props;
         return (

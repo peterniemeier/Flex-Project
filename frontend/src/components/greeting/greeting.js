@@ -2,9 +2,6 @@ import React from 'react';
 import './greeting.css';
 
 class Greeting extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
       

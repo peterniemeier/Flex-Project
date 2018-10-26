@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import '../../assets/stylesheets/shared.css';
@@ -9,10 +9,6 @@ import '../../components/session_form/modal.css';
 import SearchBar from './search_bar';
 
 export class Splash extends Component {
-
-  constructor(props) {
-    super(props) 
-  }
 
   render() {
     const { openModal, } = this.props;
@@ -35,7 +31,7 @@ export class Splash extends Component {
             <SearchBar />
           </div>
             <div className="splash-image-container">
-              <img src="https://images.pexels.com/photos/127726/pexels-photo-127726.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+              <img alt='' src="https://images.pexels.com/photos/127726/pexels-photo-127726.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
             </div>
         </div>
     );

@@ -23,6 +23,7 @@
 .toilet-info h1 {
     font-size: 40px;
     margin: 10px 0;
+    text-transform: capitalize;
 }
 
 .toilet-info p {

@@ -3,6 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const link = document.createElement('link');
   link.setAttribute("rel", "shortcut icon");
   link.setAttribute('type', 'image/png');
-  link.setAttribute("href", "http://localhost:3000/favicon-16x16.png");
+  link.setAttribute("href", "http://localhost:3000/favicon2-16x16.png");
   head.appendChild(link);
 })

@@ -18,7 +18,7 @@ export class SearchBar extends Component {
     search(event) {
         const { setCenter, history, match } = this.props;
         event.preventDefault();
-        if (this.autocomplete.getPlace()) {
+        if (this.autocomplete.getPlace() && this.autocomplete.getPlace().geometry) {
             const location = this.autocomplete.getPlace().geometry.location;
             const latLng = {
                 lat: location.lat(),

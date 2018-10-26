@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { setCenter } from "../../actions/map_actions";
-import { openModal } from "../../actions/modal_actions";
 
 import './searchbar.css';
 
@@ -44,7 +43,6 @@ export class SearchBar extends Component {
 
 const mDtP = dispatch => ({
     setCenter: center => dispatch(setCenter(center)),
-    openModal: modal => dispatch(openModal(modal))
 });
 
 export default withRouter(connect(null, mDtP)(SearchBar));

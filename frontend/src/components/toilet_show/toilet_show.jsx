@@ -37,7 +37,6 @@ class ToiletShow extends React.Component {
   }
 
   returnComments() {
-
     const comments = this.props.toilet.comments.map((comment) => {
       return (
         <ToiletCommentItem
@@ -65,6 +64,7 @@ class ToiletShow extends React.Component {
           <h1>{this.props.toilet.title}</h1>
           <p>{this.props.toilet.address}</p>
         </div>
+        <ul>{this.returnComments()}</ul>
         <form className="comment-form" onSubmit={this.handleSubmit}>
           <textarea className="input-text comment-textarea" placeholder="Add Comment" value={this.state.body} onChange={this.update("body")} />
 
@@ -100,7 +100,7 @@ class ToiletShow extends React.Component {
           <input className="btn btn-secondary btn-m" type="submit" value="Add Comment" />
         </form>
 
-        <ul>{this.returnComments()}</ul>
+
       </div>;
   }
 }

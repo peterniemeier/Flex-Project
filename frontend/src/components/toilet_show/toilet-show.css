@@ -1,0 +1,45 @@
+.static-map {
+    height: 300px;
+    width: 300px;
+    border: 1px solid black;
+    padding: 1px;
+    margin: 0 25px;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-form > * {
+    margin: 10px 0px;
+}
+
+.toilet-info {
+    width: 300px;
+    margin: 0 25px;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 20px;
+}
+
+.comment-textarea {
+    height: 300px;
+    width: 300px;
+}
+
+.comment-textarea:focus { 
+    background: white !important;
+}
+
+.ratings > label > span {
+    margin-right: 3px;
+}
+
+

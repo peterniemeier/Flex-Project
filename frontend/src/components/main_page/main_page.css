@@ -4,10 +4,6 @@
     margin: 10px;
 }
 
-.all-content {
-    display: flex;
-}
-
 .toilet-sidebar {
     display: flex;
     flex-direction: column;

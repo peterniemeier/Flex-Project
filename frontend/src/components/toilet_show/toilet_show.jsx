@@ -1,5 +1,10 @@
 import React from 'react';
-import Link from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
+import '../../assets/stylesheets/shared.css';
+import './toilet-show.css';
+
+import {makeMapUrl} from '../../util/map_api_util';
 
 class ToiletShow extends React.Component {
   constructor(props) {
@@ -17,7 +22,6 @@ class ToiletShow extends React.Component {
   }
 
   update(field) {
-    console.log(this.state)
     return(e) => {
       this.setState({[field]: e.target.value});
     }
@@ -34,34 +38,46 @@ class ToiletShow extends React.Component {
     }
     this.state.toilet_id = this.props.toilet._id;
     return (
-      <div>
-        <div>
-          {this.props.toilet.title}
-          {this.props.toilet.address}
+      <div className='all-content'>
+        <div className='static-map'>
+            <img src={makeMapUrl(this.props.toilet)}/>
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
+        <div className='toilet-info'>
+          <h1>
+            {this.props.toilet.title}
+          </h1>
+          <p>
+            {this.props.toilet.address}
+          </p>
+        </div>
+        <form className='comment-form' onSubmit={this.handleSubmit}>
+          <textarea
+            className='input-text comment-textarea'
             placeholder="Comments"
             value={this.state.body}
             onChange={this.update('body')}
             />
 
-          <div>
-            1
-            <input type="radio" name="rating" value="1" onChange={this.update('rating')} />
-            2
-            <input type="radio" name="rating" value="2" onChange={this.update('rating')} />
-            3
-            <input type="radio" name="rating" value="3" onChange={this.update('rating')} />
-            4
-            <input type="radio" name="rating" value="4" onChange={this.update('rating')} />
-            5
-            <input type="radio" name="rating" value="5" onChange={this.update('rating')} />
+          <div className='ratings'>
+            <label> <span>1</span>
+              <input type="radio" name="rating" value="1" onChange={this.update('rating')} />
+            </label>
+            <label> <span>2</span>
+              <input type="radio" name="rating" value="2" onChange={this.update('rating')} />
+            </label>
+            <label> <span>3</span>
+              <input type="radio" name="rating" value="3" onChange={this.update('rating')} />
+            </label>
+            <label> <span>4</span>
+              <input type="radio" name="rating" value="4" onChange={this.update('rating')} />
+            </label>
+            <label> <span>5</span>
+              <input type="radio" name="rating" value="5" onChange={this.update('rating')} />
+            </label>
 
           </div>
 
-          <input
+          <input className='btn btn-secondary btn-m'
             type="submit"
             value="Add Comment"
             />

@@ -14,3 +14,7 @@ export const fetchAddress = latLng => {
         method: 'GET'
     })
 };
+export const makeMapUrl = (toilet) => {
+    const toiletLatLng = `${toilet.lat},${toilet.lng}`;
+    return `https://maps.googleapis.com/maps/api/staticmap?center=${toiletLatLng}&zoom=17&size=300x300&markers=color:red%7C${toiletLatLng}&key=${window.api_key}`
+}

@@ -16,12 +16,11 @@ class ToiletShow extends React.Component {
       creator: this.props.creator.username,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   componentDidMount() {
-
     this.props.fetchToilet(this.props.match.params.toiletId);
-    this.props.fetchToiletComments(this.props.match.params.toiletId);
   }
 
   update(field) {
@@ -50,10 +49,18 @@ class ToiletShow extends React.Component {
 
 
 
+
+
   render() {
     if (!this.props.toilet) {
       return null;
     }
+    let avgRating = '';
+    if (this.props.toilet.ratingsSum != NaN) {
+      avgRating = this.props.toilet.ratingsSum / 2
+    }
+
+
     this.state.toilet_id = this.props.toilet._id;
 
     return <div className="all-content">
@@ -62,9 +69,12 @@ class ToiletShow extends React.Component {
         </div>
         <div className="toilet-info">
           <h1>{this.props.toilet.title}</h1>
+          <p>{avgRating}</p>
           <p>{this.props.toilet.address}</p>
         </div>
-        {this.returnComments()}
+        <ul>
+          {this.returnComments()}
+        </ul>
 
         <form className="comment-form" onSubmit={this.handleSubmit}>
           <textarea className="input-text comment-textarea" placeholder="Add Comment" value={this.state.body} onChange={this.update("body")} />

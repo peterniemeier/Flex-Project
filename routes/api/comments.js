@@ -21,6 +21,10 @@ router.post('/create', (req,res) => {
     Toilet.findById(req.body.toilet_id)
     .then(toilet => {
       toilet.comments.unshift(newComment);
+
+      //re-calc avgRating
+      let totalComments = toilet.comments.length;
+      (toilet.ratingsSum += newComment._doc.rating) / totalComments;
       toilet.save()
       .then(() => {
         res.json(toilet);

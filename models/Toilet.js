@@ -27,7 +27,7 @@ const ToiletSchema = new Schema({
   },
   comments: [{
     type: Schema.Types.ObjectId,
-    ref: 'Toilet'
+    ref: 'Comment'
   }]
 
 

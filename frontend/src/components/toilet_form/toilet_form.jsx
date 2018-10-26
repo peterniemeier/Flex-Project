@@ -10,7 +10,6 @@ class ToiletForm extends React.Component {
       title: this.props.title,
       address: this.props.address,
       comments: this.props.comments,
-      // creator: this.prop.creator,
       date: new Date(),
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,9 +28,11 @@ class ToiletForm extends React.Component {
 
 
   render() {
-
+    if (!this.props.creator) {
+      return null;
+    }
+    this.state.creator = this.props.creator;
     return (
-
       <div>
         <form onSubmit={this.handleSubmit}>
           <input

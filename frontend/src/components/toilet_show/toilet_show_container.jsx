@@ -1,4 +1,3 @@
-import React from 'react';
 import {connect} from 'react-redux';
 import ToiletShow from './toilet_show';
 import {fetchToilet, createToiletComment, fetchToiletComments} from '../../util/toilet_api_util';

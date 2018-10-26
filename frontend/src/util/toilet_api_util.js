@@ -1,8 +1,8 @@
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
+// import jwt_decode from 'jwt-decode';
 import * as ToiletActions from '../actions/toilet_actions';
 
-const $ = window.$;
+// const $ = window.$;
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 

@@ -19,6 +19,7 @@
 }
 
 .btn-primary {
+    color: white;
     background-color: #34495E;
     border: 1px solid #85929E;
 }
@@ -49,10 +50,14 @@
     cursor: pointer;
 }
 
+.btn-xs {
+    width: 60px;
+    height: 10px;
+}
+
 .btn-s {
     width: 100px;
     height: 40px;
-
 }
 
 .btn-m {

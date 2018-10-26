@@ -15,7 +15,7 @@
     position: absolute;
     z-index: 1;
     width: 50%;
-    top: 12%;
+    top: 15%;
     left: 28%;
     display: inline-flex;
 }
@@ -50,4 +50,51 @@
     border-radius: 0 4px 4px 0;
     background-color: rgb(125, 139, 140);
 }
+
+.splash-header {
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.splash-header button {
+    background: transparent;
+    border: 3px solid white;
+    border-radius: 4px;
+    padding: 5px 15px;
+    color: white;
+    font-size: 18px;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.splash-header button:hover {
+    background: white;
+    color: black;
+}
+
+.session-btns {
+    margin: 15px;
+}
+
+.splash-links-container {
+    margin: 25px;
+    margin-left: 50px;
+}
+
+.splash-link {
+    font-size: 22px;
+    color: white;
+    padding-bottom: 4px;
+    border-bottom: 3px solid transparent;
+}
+
+.splash-link:hover {
+    border-bottom: 3px solid white;
+}
+
 

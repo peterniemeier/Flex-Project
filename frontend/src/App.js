@@ -1,6 +1,6 @@
 import './assets/stylesheets/reset.css';
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import NavBar from './components/navbar/navbar_container';
 import MainPage from './components/main_page/main_page';
 import ToiletFormContainer from './components/toilet_form/toilet_form_container';
@@ -15,8 +15,10 @@ class App extends Component {
     return (
       <div className="App">
           <Modal />
-          <NavBar />
-          <Route exact path='/' component={Splash} />
+          <Switch>
+            <Route exact path='/' component={Splash} />
+            <Route path='/' component={NavBar} />
+          </Switch>
           <Route path='/main/:toiletId' component={MainPage} />
           <Route exact path='/main/' component={MainPage}/>
           <Route exact path='/toilets/new' component={ToiletFormContainer} />

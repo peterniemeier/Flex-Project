@@ -15,13 +15,16 @@ router.post('/create', (req,res) => {
     toilet_id: req.body.toilet_id
   })
   newComment.save()
-  .then(() => {
-    res.json(newComment)
-  })
+  // .then(() => {
+  //   res.json(newComment)
+  // })
     Toilet.findById(req.body.toilet_id)
     .then(toilet => {
       toilet.comments.unshift(newComment);
-      toilet.save();
+      toilet.save()
+      .then(() => {
+        res.json(toilet);
+      })
     })
     .catch(err => console.error(err))
 });

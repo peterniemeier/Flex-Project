@@ -11,46 +11,6 @@
     width: 150%;
 }
 
-.search-bar {
-    position: absolute;
-    z-index: 1;
-    width: 50%;
-    top: 15%;
-    left: 28%;
-    display: inline-flex;
-}
-
-.searchbar {
-    padding: 9px;
-    font-family: Courier New, monospace;
-    font-size: 16px;
-    width: 100%;
-    border: 1px solid #85929E;
-    border-radius: 4px 0px 0 4px;
-    height: 25px;
-}
-
-.searchbar:focus {
-    outline: none;
-}
-
-.search-bar > i {
-    width: 45px;
-    padding: 3px;
-    background-color: #AAB7B8;
-    font-size: 31px;
-    border: 1px solid #85929E;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search-bar > i:hover { 
-    cursor: pointer;
-    border-radius: 0 4px 4px 0;
-    background-color: rgb(125, 139, 140);
-}
-
 .splash-header {
     position: absolute;
     top: 0px;

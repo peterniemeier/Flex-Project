@@ -31,6 +31,7 @@ class ToiletShow extends React.Component {
   }
 
   handleSubmit(e) {
+
     e.preventDefault();
     this.props.createToiletComment(this.state).then(() => console.log('success'))
   }

@@ -44,7 +44,15 @@ class SignupForm extends React.Component {
   render() {
     return (
         <form className='signup-form' onSubmit={ this.handleSubmit }>
+        <header>
           <h1>SIGN UP</h1>
+          <div className='form-link-container'>
+            <span>Have an account:</span>
+            <span className="form-link" onClick={this.otherForm}>
+              Sign In
+            </span>
+          </div>
+        </header>
           <ul className='login-errors'>
             {Object.values(this.props.errors).map(error => {
               console.log(error)
@@ -65,8 +73,6 @@ class SignupForm extends React.Component {
           value={this.state.passwor2} placeholder='repeat password'
           className='input-text'></input>
           <button className='btn btn-secondary btn-l'>Sign Up</button>
-          <span>Already have an account?</span>
-          <button onClick={this.otherForm}>Sign in</button>
         </form>
     )
   }

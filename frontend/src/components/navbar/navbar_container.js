@@ -11,7 +11,7 @@ export class NavBar extends Component {
   render() {
     return <nav className="navbar">
         <Link to="/" className="link-style">
-          <img className="icon" src="https://image.flaticon.com/icons/svg/1175/1175936.svg" />
+          <img alt='' className="icon" src="https://image.flaticon.com/icons/svg/1175/1175936.svg" />
         </Link>
         <Link to="/main" className="link-style active home">
           Home

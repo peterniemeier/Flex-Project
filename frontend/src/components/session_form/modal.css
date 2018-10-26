@@ -46,3 +46,33 @@
   margin-bottom: 25px;
 }
 
+.signup-form h1 {
+  font-size: 25px;
+  font-weight: bold;
+  width: 150px;
+
+}
+
+.signup-form header {
+  display: flex;
+}
+
+.form-link-container {
+  display: block;
+  flex-direction: column;
+}
+
+.form-link {
+  color: black;
+  font-weight: bold;
+  border-bottom: 1px solid transparent;
+  margin-top: 5px;
+  display: inline-block;
+  padding: 2px;
+}
+
+.form-link:hover {
+  border-bottom: 1px solid black;
+  /* text-decoration: underline; */
+  cursor: pointer;
+}

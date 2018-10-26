@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import ToiletForm from './toilet_form';
 import {createToilet} from '../../util/toilet_api_util';

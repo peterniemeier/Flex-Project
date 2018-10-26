@@ -14,9 +14,16 @@ router.post('/create', (req,res) => {
     rating: req.body.rating,
     toilet_id: req.body.toilet_id
   })
-  newComment.save().then(() => {
+  newComment.save()
+  .then(() => {
     res.json(newComment)
-  });
+  })
+    Toilet.findById(req.body.toilet_id)
+    .then(toilet => {
+      toilet.comments.unshift(newComment);
+      toilet.save();
+    })
+    .catch(err => console.error(err))
 });
 
 router.get("/:id", (req,res) => {

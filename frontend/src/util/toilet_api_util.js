@@ -90,9 +90,11 @@ return axios
 };
 
 export const createToiletComment = (comment) => dispatch => {
+
 return axios
     .post('/api/comments/create', comment)
     .then(res => {
+
       dispatch(ToiletActions.receiveToiletComment(res));
     })
     .catch(err =>
@@ -100,12 +102,12 @@ return axios
     );
 };
 
-
+//fetchToiletComments' id is the id of the toilet whose comments
+//we want to fetch.
 export const fetchToiletComments = (id) => dispatch => {
 return axios
     .get(`/api/comments/${id}`)
     .then(res => {
-      console.log(res)
       // gets the specified toilet
       dispatch(ToiletActions.receiveToiletComments(res));
     })

@@ -13,6 +13,7 @@ export default (state = {}, action) => {
     case RECEIVE_COMMENTS:
       return action.comments.data;
     case RECEIVE_COMMENT:
+      
       return Object.assign(newState, {[action.comment.data._id]: action.comment.data})
     default:
       return state

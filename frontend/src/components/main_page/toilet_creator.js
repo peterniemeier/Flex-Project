@@ -77,13 +77,13 @@ class ToiletCreator extends React.Component {
                     <button className='btn m-6 btn-secondary'
                         onClick={this.setMyLocation.bind(this)}>
                         Create Toilet at my location</button>
-                    <p>{this.state.currentAddress}</p>
+                    <p className='toilet-create-label'>{this.state.currentAddress}</p>
                 </div>
                 <div className='button-row'>
                     <button className='btn m-6 btn-secondary'
                         onClick={this.sendToiletLocation.bind(this)}>
                         Create toilet at clicked location</button>
-                    <p id='toilet-address'>{this.state.toiletAddress}</p>
+                    <p className='toilet-create-label' id='toilet-address'>{this.state.toiletAddress}</p>
                 </div>
             </div>
         )

@@ -4,10 +4,6 @@
     margin: 10px;
 }
 
-.all-content {
-    display: flex;
-}
-
 .toilet-sidebar {
     display: flex;
     flex-direction: column;
@@ -21,15 +17,7 @@
     flex-direction: column;
 }
 
-.button-row {
-    display: flex;
-    align-items: center;
-    padding-bottom: 3px;
-    height: 45px;
-    margin-bottom: 10px;
-}
-
-.button-row > p {
+.toilet-create-label {
     display: flex;
     border: 1px solid #85929E;
     border-radius: 4px;
@@ -37,6 +25,15 @@
     height: 100%;
     align-items: center;
     width: 250px;
+    font-size: 16px;
+}
+
+.button-row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 3px;
+    height: 45px;
+    margin-bottom: 10px;
 }
 
 .button-row > .btn {
@@ -74,6 +71,7 @@
     padding: 5px 0;
     margin-bottom: 5px;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .index-item > strong:hover {
@@ -85,11 +83,12 @@
     border-bottom: 1px solid transparent;
 }
 
-h1 {
+.selected-toilet h1 {
     font-size: 35px;
     font-weight: bold;
     text-align: center;
     margin: 0 15px;
+    text-transform: capitalize;
 }
 
 h3 {

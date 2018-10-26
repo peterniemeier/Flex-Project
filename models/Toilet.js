@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Comment = require("./Comment");
 
 const ToiletSchema = new Schema({
   lat: {

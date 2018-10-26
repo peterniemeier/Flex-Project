@@ -47,9 +47,25 @@ class ToiletShow extends React.Component {
     return comments;
   }
 
-  showForm() {
-    if(this.state.creator) {
-      return (
+
+
+
+  render() {
+    if (!this.props.toilet) {
+      return null;
+    }
+    this.state.toilet_id = this.props.toilet._id;
+
+    return <div className="all-content">
+        <div className="static-map">
+          <img src={makeMapUrl(this.props.toilet)} />
+        </div>
+        <div className="toilet-info">
+          <h1>{this.props.toilet.title}</h1>
+          <p>{this.props.toilet.address}</p>
+        </div>
+        {this.returnComments()}
+
         <form className="comment-form" onSubmit={this.handleSubmit}>
           <textarea className="input-text comment-textarea" placeholder="Add Comment" value={this.state.body} onChange={this.update("body")} />
 
@@ -84,32 +100,6 @@ class ToiletShow extends React.Component {
 
           <input className="btn btn-secondary btn-m" type="submit" value="Add Comment" />
         </form>
-      )
-    } else {
-      return <div>
-        <h3>Sign in to leave a review</h3>
-      </div>
-    }
-  }
-
-
-
-
-  render() {
-    if (!this.props.toilet) {
-      return null;
-    }
-    this.state.toilet_id = this.props.toilet._id;
-
-    return <div className="all-content">
-        <div className="static-map">
-          <img src={makeMapUrl(this.props.toilet)} />
-        </div>
-        <div className="toilet-info">
-          <h1>{this.props.toilet.title}</h1>
-          <p>{this.props.toilet.address}</p>
-        </div>
-
 
       </div>;
   }

@@ -40,9 +40,9 @@ class ToiletShow extends React.Component {
         <div className="toilet-info">
           <h1>{this.props.toilet.title}</h1>
           <p>{this.props.toilet.address}</p>
+          {this.returnComments()}
+          <CommentForm toiletId={this.props.toiletId} creator={this.props.creator}/>
         </div>
-        {this.returnComments()}
-        <CommentForm toiletId={this.props.toiletId} creator={this.props.creator}/>
       </div>;
   }
 }

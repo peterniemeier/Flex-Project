@@ -57,7 +57,7 @@ class ToiletShow extends React.Component {
     }
     let avgRating = '';
     if (this.props.toilet.ratingsSum != NaN) {
-      avgRating = this.props.toilet.ratingsSum / 2
+      avgRating = Math.round(this.props.toilet.ratingsSum / this.props.toilet.comments.length)
     }
 
 

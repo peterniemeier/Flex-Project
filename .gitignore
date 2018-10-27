@@ -22,7 +22,7 @@
 
 # .gitignore
 /config/keys_dev.js
-/config/keys.js
+# /config/keys.js
 /frontend/node_modules/
 node_modules/
 bundle.js

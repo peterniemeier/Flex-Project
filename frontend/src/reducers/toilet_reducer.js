@@ -1,4 +1,3 @@
-import merge from 'lodash-merge'
 import {RECEIVE_TOILETS,
         RECEIVE_TOILET,
         REMOVE_TOILET} from '../actions/toilet_actions';

@@ -46,3 +46,8 @@ table {
 button:hover, a:hover {
 	cursor: pointer
 }
+
+a {
+	color: black;
+	text-decoration: none;
+}

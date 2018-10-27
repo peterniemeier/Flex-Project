@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Comment = require("./Comment");
 
 const ToiletSchema = new Schema({
   lat: {
@@ -25,9 +26,13 @@ const ToiletSchema = new Schema({
   address: {
     type: String,
   },
+  ratingsSum: {
+    type: Number
+  },
   comments: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Toilet'
+    creator: String,
+    body: String,
+    rating: Number
   }]
 
 

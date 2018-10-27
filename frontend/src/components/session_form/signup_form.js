@@ -14,6 +14,7 @@ class SignupForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.otherForm = this.otherForm.bind(this);
   }
 
   update(field) {
@@ -27,16 +28,31 @@ class SignupForm extends React.Component {
     this.props.processForm(this.state).then((success) => {
       if (success.type === "RECEIVE_CURRENT_USER") {
         this.props.closeModal();
+        this.props.history.push('/main')
       } else {
         console.log('failed to sign up')
       }
     });
   }
 
+  otherForm() {
+    this.props.clearErrors();
+    this.props.otherForm();
+  }
+
+
   render() {
     return (
         <form className='signup-form' onSubmit={ this.handleSubmit }>
+        <header>
           <h1>SIGN UP</h1>
+          <div className='form-link-container'>
+            <span>Have an account:</span>
+            <span className="form-link" onClick={this.otherForm}>
+              Sign In
+            </span>
+          </div>
+        </header>
           <ul className='login-errors'>
             {Object.values(this.props.errors).map(error => {
               console.log(error)

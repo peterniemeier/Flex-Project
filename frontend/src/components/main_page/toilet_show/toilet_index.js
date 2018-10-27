@@ -18,7 +18,7 @@ export class ToiletIndex extends Component {
     return (
       <ul>
           {Object.values(toilets).map(toilet => {
-              return <ToiletIndexItem key={toilet.id} 
+              return <ToiletIndexItem key={toilet._id} 
               toilet={toilet} history={this.props.history}/>
           })}
       </ul>

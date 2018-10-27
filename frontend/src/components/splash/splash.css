@@ -1,0 +1,60 @@
+.splash-container {
+    position: relative;
+}
+
+.splash-image-container {
+    width: 66.6%;
+    z-index: 0;
+}
+
+.splash-image-container > img {
+    width: 150%;
+}
+
+.splash-header {
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.splash-header button {
+    background: transparent;
+    border: 3px solid white;
+    border-radius: 4px;
+    padding: 5px 15px;
+    color: white;
+    font-size: 18px;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.splash-header button:hover {
+    background: white;
+    color: rgb(57, 66, 75);
+}
+
+.session-btns {
+    margin: 15px;
+}
+
+.splash-links-container {
+    margin: 25px;
+    margin-left: 50px;
+}
+
+.splash-link {
+    font-size: 22px;
+    color: white;
+    padding-bottom: 4px;
+    border-bottom: 3px solid transparent;
+}
+
+.splash-link:hover {
+    border-bottom: 3px solid white;
+}
+
+

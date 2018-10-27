@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
+import '../../../assets/stylesheets/shared.css';
 
 export class SelectedToilet extends Component {
   render() {
@@ -14,10 +16,13 @@ export class SelectedToilet extends Component {
       }
       return (
         <div className='selected-toilet'>
-          <h1>{theToilet.title}</h1>
+          <Link to={`/toilets/${theToilet._id}`} >
+            <h1>{theToilet.title}</h1>
+          </Link>
           <h3>{theToilet.address}</h3>
           <p>{rating}</p>
-          <button>Show me the Details</button>
+          <Link to={`/toilets/${theToilet._id}`} 
+            className='btn-link'>Show me the Details</Link>
         </div>
       );
     }

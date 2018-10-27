@@ -14,13 +14,27 @@ router.post('/create', (req,res) => {
     rating: req.body.rating,
     toilet_id: req.body.toilet_id
   })
-  newComment.save().then(() => {
-    res.json(newComment)
-  });
+  newComment.save()
+  // .then(() => {
+  //   res.json(newComment)
+  // })
+    Toilet.findById(req.body.toilet_id)
+    .then(toilet => {
+      toilet.comments.unshift(newComment);
+
+      //re-calc avgRating
+      let totalComments = toilet.comments.length;
+      (toilet.ratingsSum += newComment._doc.rating) / totalComments;
+      toilet.save()
+      .then(() => {
+        res.json(toilet);
+      })
+    })
+    .catch(err => console.error(err))
 });
 
 router.get("/:id", (req,res) => {
-  Comment.findById(req.params.toilet.id).then(comments => res.json(comment))
+  Comment.findById(req.params.id).then(comments => res.json(comment))
   .catch(err => res.status(404).json({nocommentfound: 'No comment found'}))
 });
 

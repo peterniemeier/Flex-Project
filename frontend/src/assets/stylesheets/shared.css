@@ -1,3 +1,8 @@
+.all-content {
+    display: flex;
+    margin-top: 10px;
+}
+
 .btn {
     padding: 10px 10px;
     min-height: 40px;
@@ -14,6 +19,7 @@
 }
 
 .btn-primary {
+    color: white;
     background-color: #34495E;
     border: 1px solid #85929E;
 }
@@ -44,10 +50,14 @@
     cursor: pointer;
 }
 
+.btn-xs {
+    width: 60px;
+    height: 10px;
+}
+
 .btn-s {
     width: 100px;
     height: 40px;
-
 }
 
 .btn-m {
@@ -72,6 +82,19 @@
 
 .active {
     color: #fff;
+}
+
+.btn-link {
+    color:white;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    background: #AAB7B8;
+}
+
+.btn-link:hover {
+    background: rgb(125, 139, 140);
 }
 
 body {

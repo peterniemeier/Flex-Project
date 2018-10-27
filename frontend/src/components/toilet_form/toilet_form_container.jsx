@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import ToiletForm from './toilet_form';
 import {createToilet} from '../../util/toilet_api_util';
@@ -10,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
     title: '',
     address: state.ui.maps.toiletAddress,
     comments: [],
-    // creator: state.session.id,
+    creator: state.session.id,
     formType: 'Add Toilet'
   }
 }

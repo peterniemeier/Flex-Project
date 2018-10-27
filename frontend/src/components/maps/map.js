@@ -20,10 +20,10 @@ class Map extends React.Component {
     }
 
     componentDidMount() {
-        const { fetchToilets} = this.props;
+        const { fetchToilets, maps} = this.props;
         // if (google) {
             const mapOptions = {
-                center: { lat: 37.7749, lng: -122.4194 },
+                center: maps.center,
                 zoom: 12
             };
             this.map = new google.maps.Map(
@@ -47,11 +47,15 @@ class Map extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        const { maps } = this.props;
         const toiletId = nextProps.match.params.toiletId;
         if (toiletId && toiletId !== this.props.match.params.toiletId) {
             const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
             this.map.setZoom(17);
             this.map.setCenter(pos);
+        }
+        if (maps.center !== nextProps.maps.center) {
+            this.map.setCenter(nextProps.maps.center)
         }
     }
 
@@ -86,6 +90,7 @@ class Map extends React.Component {
 
 const mapStateToProps = state => ({
     toilets: state.entities.toilets,
+    maps: state.ui.maps,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -4,8 +4,8 @@ const Toilet = require("./Toilet");
 
 const CommentSchema = new Schema({
   creator: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+    type: String,
+    required: true
   },
   body: {
     type: String,
@@ -22,11 +22,11 @@ const CommentSchema = new Schema({
 
 });
 
-CommentSchema.post("save", function(saved){
-  console.log("Comment didn't make it")
-  Toilet.findByIdAndUpdate(this.toilet_id, {$push:{comments: this}})
-  .then( () => saved());
-});
+// CommentSchema.post("save", function(saved){
+//   // console.log("Comment didn't make it")
+//   Toilet.findByIdAndUpdate(this.toilet_id, {$push:{comments: this}})
+//   .then( () => saved());
+// });
 
 
 module.exports = Comment = mongoose.model('comments', CommentSchema);

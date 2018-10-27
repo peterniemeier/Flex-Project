@@ -26,6 +26,9 @@ const ToiletSchema = new Schema({
   address: {
     type: String,
   },
+  ratingsSum: {
+    type: Number
+  },
   comments: [{
     creator: String,
     body: String,

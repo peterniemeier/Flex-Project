@@ -49,4 +49,18 @@
     
 }
 
+.creator-font {
+    font-size: 24px;
+}
 
+
+.comments-and-toilets {
+    display: flex;
+    align-content: flex-start;
+}
+
+
+
+ 
+
+ 

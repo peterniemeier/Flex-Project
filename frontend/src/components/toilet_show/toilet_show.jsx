@@ -46,11 +46,6 @@ class ToiletShow extends React.Component {
     return comments;
   }
 
-
-
-
-
-
   render() {
     if (!this.props.toilet) {
       return null;
@@ -67,14 +62,16 @@ class ToiletShow extends React.Component {
         <div className="static-map">
           <img src={makeMapUrl(this.props.toilet)} />
         </div>
-        <div className="toilet-info">
-          <h1>{this.props.toilet.title}</h1>
-          <p>{avgRating}</p>
-          <p>{this.props.toilet.address}</p>
+        <div className="comments-and-toilets">
+          <div className="toilet-info">
+            <h1>{this.props.toilet.title}</h1>
+            <p>{avgRating}</p>
+            <p>{this.props.toilet.address}</p>
+          </div>
+          <ul>
+            {this.returnComments()}
+          </ul>
         </div>
-        <ul>
-          {this.returnComments()}
-        </ul>
 
         <form className="comment-form" onSubmit={this.handleSubmit}>
           <textarea className="input-text comment-textarea" placeholder="Add Comment" value={this.state.body} onChange={this.update("body")} />

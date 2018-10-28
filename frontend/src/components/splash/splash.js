@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import '../../assets/stylesheets/shared.css';
-import './splash.css'; 
+import './splash.css';
 import '../../components/session_form/modal.css';
 
 import { openModal } from "../../actions/modal_actions";

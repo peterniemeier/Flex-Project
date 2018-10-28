@@ -10,19 +10,19 @@ import ToiletShowContainer from './components/toilet_show/toilet_show_container'
 import Splash from './components/splash/splash';
 
 class App extends Component {
+  
   render() { 
     return (
       <div className="App">
-          <Modal />
-          <Switch>
-            <AuthRoute exact path='/' component={Splash} />
+            <Modal />
+
             <Route path='/' component={NavBar} />
-          </Switch>
           <Switch>
             <Route path='/main/:toiletId' component={MainPage} />
             <Route path='/main/' component={MainPage}/>
             <Route path='/toilets/new' component={ToiletFormContainer} />
             <Route path='/toilets/:toiletId' component={ToiletShowContainer} />
+            <AuthRoute exact path='/' component={Splash} />
             <Redirect to='/main' />
           </Switch>
       </div>

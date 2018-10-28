@@ -46,7 +46,6 @@ window.marriage.then(() => {
   if (document.readyState === 'loading') {
       document.addEventListener("DOMContentLoaded", makeReact);
     } else {
-      makeReact(); 
+      makeReact();
     }
 });
-      

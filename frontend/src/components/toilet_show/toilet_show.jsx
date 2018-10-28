@@ -46,9 +46,6 @@ class ToiletShow extends React.Component {
       avgRating = 'Porcelain rating: ' + Math.round(this.props.toilet.ratingsSum / this.props.toilet.comments.length)
     }
 
-
-    this.state.toilet_id = this.props.toilet._id;
-
     return <div className="all-content">
         <div className="static-map">
           <img src={makeMapUrl(this.props.toilet)} />
@@ -58,7 +55,8 @@ class ToiletShow extends React.Component {
           <p>{avgRating}</p>
           <p>{this.props.toilet.address}</p>
           {this.returnComments()}
-          <CommentForm toiletId={this.props.toiletId} creator={this.props.creator}/>
+        <CommentForm toiletId={this.props.toilet._id} 
+           createToiletComment={this.props.createToiletComment} creator={this.props.creator}/>
         </div>
       </div>;
   }

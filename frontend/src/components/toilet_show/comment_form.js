@@ -20,7 +20,14 @@ export class CommentForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createToiletComment(this.state).then(() => console.log('success'))
+        this.props.createToiletComment(this.state)
+        .then(() => {
+            this.setState({
+                rating: '',
+                body: '',
+                creator: this.props.creator.username,
+            })
+        });
     }
 
 
@@ -55,7 +62,7 @@ export class CommentForm extends Component {
                       </label>
                   </div>
       
-                  <input className="btn btn-secondary btn-m" type="submit" value="Add Comment" />
+                  <button className="btn btn-secondary btn-m">Create Comment</button>
               </form>
           )
       }

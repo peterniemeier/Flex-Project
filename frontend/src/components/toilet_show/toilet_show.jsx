@@ -15,7 +15,6 @@ class ToiletShow extends React.Component {
       body: '',
       creator: this.props.creator.username,
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 

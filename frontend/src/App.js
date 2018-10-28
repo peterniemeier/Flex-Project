@@ -14,7 +14,6 @@ class App extends Component {
     return (
       <div className="App">
             <Modal />
-
             <Route path='/' component={NavBar} />
           <Switch>
             <Route path='/main/:toiletId' component={MainPage} />

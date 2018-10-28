@@ -8,10 +8,19 @@ import ToiletCommentItem from './toilet_comment_item';
 import CommentForm from './comment_form';
 
 class ToiletShow extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      rating: '',
+      body: '',
+      creator: this.props.creator.username,
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
 
   componentDidMount() {
     this.props.fetchToilet(this.props.match.params.toiletId);
-    this.props.fetchToiletComments(this.props.match.params.toiletId);
   }
 
   returnComments() {
@@ -33,12 +42,21 @@ class ToiletShow extends React.Component {
     if (!this.props.toilet) {
       return null;
     }
+    let avgRating = '';
+    if (this.props.toilet.ratingsSum > 0) {
+      avgRating = 'Porcelain rating: ' + Math.round(this.props.toilet.ratingsSum / this.props.toilet.comments.length)
+    }
+
+
+    this.state.toilet_id = this.props.toilet._id;
+
     return <div className="all-content">
         <div className="static-map">
           <img src={makeMapUrl(this.props.toilet)} />
         </div>
         <div className="toilet-info">
           <h1>{this.props.toilet.title}</h1>
+          <p>{avgRating}</p>
           <p>{this.props.toilet.address}</p>
           {this.returnComments()}
           <CommentForm toiletId={this.props.toiletId} creator={this.props.creator}/>

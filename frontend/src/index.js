@@ -13,8 +13,11 @@ import configureStore from "./store/store";
 // import App from "./App.js";
 import Root from "./root.js";
 import * as serviceWorker from "./serviceWorker.js";
+// import { apiKeyInit } from './heroku_api_keys';
 
 const makeReact = () => {
+  // apiKeyInit();
+
   let store = configureStore();
   // Check for token
   if (localStorage.jwtToken && localStorage.jwtToken !== "undefined") {
@@ -39,11 +42,9 @@ const makeReact = () => {
   serviceWorker.unregister();
 };
 
-window.marriage.then(() => {
-  if (document.readyState === 'loading') {
-      document.addEventListener("DOMContentLoaded", makeReact);
-    } else {
-      makeReact(); 
-    }
-});
+if (document.readyState === 'loading') {
+    document.addEventListener("DOMContentLoaded", makeReact);
+  } else {
+    makeReact(); 
+}
       

@@ -10,8 +10,7 @@ import ToiletShowContainer from './components/toilet_show/toilet_show_container'
 import Splash from './components/splash/splash';
 
 class App extends Component {
-  
-  render() { 
+  render() {
     return (
       <div className="App">
             <Modal />

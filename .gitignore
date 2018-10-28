@@ -21,7 +21,8 @@
 /yarn-error.log
 
 # .gitignore
-/config/keys.js
+/config/keys_dev.js
+
 /frontend/node_modules/
 node_modules/
 bundle.js

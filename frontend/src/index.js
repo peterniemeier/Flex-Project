@@ -41,12 +41,10 @@ const makeReact = () => {
   ReactDOM.render(<Root store={store} />, root);
   serviceWorker.unregister();
 };
-// debugger
-// window.marriage.then(() => {
+
 if (document.readyState === 'loading') {
     document.addEventListener("DOMContentLoaded", makeReact);
   } else {
     makeReact(); 
-  }
-// });
+}
       

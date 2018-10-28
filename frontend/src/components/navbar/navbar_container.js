@@ -9,6 +9,9 @@ import { logoutUser } from '../../util/session_api_util';
 
 export class NavBar extends Component {
   render() {
+    if (this.props.location.pathname === '/') {
+      return null
+    }
     return <nav className="navbar">
         <Link to="/" className="link-style">
           <img alt='' className="icon" src="https://image.flaticon.com/icons/svg/1175/1175936.svg" />

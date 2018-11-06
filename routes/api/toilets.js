@@ -26,7 +26,6 @@ router.get('/bounds', (req, res) => {
     let url = require('url');
     let url_parts = url.parse(r.url, true);
     let query = url_parts.query;
-    debugger
   Toilet.find({
     lat: {$gt: query.northEast.lat, $lt: query.southWest.lat},
     lng: {$gt: query.northEast.lng, $lt: query.southWest.lng}

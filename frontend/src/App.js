@@ -8,6 +8,8 @@ import ToiletFormContainer from './components/toilet_form/toilet_form_container'
 import Modal from './components/session_form/modal';
 import ToiletShowContainer from './components/toilet_show/toilet_show_container';
 import Splash from './components/splash/splash';
+import Footer from './components/splash/footer.jsx';
+import CreatorsPage from './components/creators/creators_page';
 
 class App extends Component {
   render() {
@@ -21,8 +23,10 @@ class App extends Component {
             <Route path='/toilets/new' component={ToiletFormContainer} />
             <Route path='/toilets/:toiletId' component={ToiletShowContainer} />
             <AuthRoute exact path='/' component={Splash} />
+            <Route path='/creators' component={CreatorsPage} />
             <Redirect to='/main' />
           </Switch>
+          <Footer />
       </div>
     );
   }

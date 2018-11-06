@@ -118,3 +118,18 @@ return axios
       })
     );
 };
+
+export const fetchToiletsInBounds = () => dispatch => {
+  debugger;
+  return axios 
+    .get('api/toilets/bounds')
+    .then(res => {
+      dispatch(ToiletActions.receiveToilets(res))
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+}

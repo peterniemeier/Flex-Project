@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Creator from './creator';
 import '../../assets/stylesheets/shared.css';
+import './creator.css';
 
 export class CreatorsPage extends Component {
   render() {

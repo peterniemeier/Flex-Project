@@ -1,4 +1,40 @@
-.creator img {
-    width: 200px;
-    height: 300px;
+.creators {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.creators ul {
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.creators ul > li {
+    padding: 10px;
+    margin: 30px 0;
+    /* border: 1px solid #85929E; */
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px gray;
+}
+
+.external-links {
+    display: flex;
+    font-size: 35px;
+    justify-content: space-around;
+}
+
+.creators img {
+    width: 240px;
+    height: 350px;
+    margin-top: 5px;
+}
+
+.creators h2 {
+    font-size: 30px;
+}
+
+

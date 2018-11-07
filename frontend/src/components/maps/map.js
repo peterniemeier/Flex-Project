@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import MarkerManager from './marker_manager';
 import './maps.css';
 import { receiveToiletPos } from '../../actions/map_actions';
-import { fetchToilets, fetchToiletsInBounds } from '../../util/toilet_api_util';
+import { fetchToiletsInBounds } from '../../util/toilet_api_util';
 
 
 const google = window.google;
@@ -16,7 +16,7 @@ class Map extends React.Component {
     }
 
     componentDidMount() {
-        const { fetchToilets, maps} = this.props;
+        const {maps} = this.props;
             const mapOptions = {
                 center: maps.center,
                 zoom: 12
@@ -28,16 +28,6 @@ class Map extends React.Component {
         this.markerManager = new MarkerManager(this.map, this.props.history);
         this.map.addListener('click', this.handleMapClick.bind(this));
         this.map.addListener('idle', this.handleIdleMap.bind(this));
-        // this.handleIdleMap()
-        // .then(() => {
-        //     this.markerManager.createMarkers(this.props.toilets);
-        //     const toiletId = this.props.match.params.toiletId;
-        //     if (toiletId) {
-        //     const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
-        //     this.map.setZoom(17);
-        //     this.map.setCenter(pos);
-        //     }
-        // });
     }
 
     componentWillReceiveProps(nextProps) {
@@ -65,15 +55,15 @@ class Map extends React.Component {
             lng: bounds.getSouthWest().lng(),
         };
         fetchToiletsInBounds(northEast, southWest)
-            .then(() => {
-                this.markerManager.createMarkers(this.props.toilets);
-                const toiletId = this.props.match.params.toiletId;
-                if (toiletId) {
-                    const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
-                    this.map.setZoom(17);
-                    this.map.setCenter(pos);
-                }
-            });
+        .then(() => {
+            this.markerManager.createMarkers(this.props.toilets);
+            const toiletId = this.props.match.params.toiletId;
+            if (toiletId) {
+                const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
+                this.map.setZoom(17);
+                this.map.setCenter(pos);
+            }
+        });
     }
 
     handleMapClick(event) {
@@ -100,7 +90,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     receiveToiletPos: pos => dispatch(receiveToiletPos(pos)),
-    fetchToilets: () => dispatch(fetchToilets()),
     fetchToiletsInBounds: (nE, sW) => dispatch(fetchToiletsInBounds(nE, sW))
 })
 

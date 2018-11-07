@@ -3,6 +3,11 @@
     margin-top: 10px;
 }
 
+.App {
+    min-height: 800px;
+    position: relative;
+}
+
 .btn {
     padding: 10px 10px;
     min-height: 40px;

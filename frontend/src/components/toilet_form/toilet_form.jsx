@@ -4,13 +4,15 @@ import '../../assets/stylesheets/shared.css'
 class ToiletForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      lat: this.props.lat,
-      lng: this.props.lng,
-      title: this.props.title,
-      address: this.props.address,
-      comments: this.props.comments,
-      date: new Date(),
+    if (this.props.toiletPos) {
+      this.state = {
+        lat: this.props.toiletPos.lat,
+        lng: this.props.toiletPos.lng,
+        title: this.props.title,
+        address: this.props.address,
+        comments: this.props.comments,
+        date: new Date(),
+      }
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -29,7 +31,7 @@ class ToiletForm extends React.Component {
 
   render() {
     if (!this.props.creator) {
-      return null;
+      return <h2>You Must Log In to Create Toilets</h2>;
     }
     this.state.creator = this.props.creator;
     return (

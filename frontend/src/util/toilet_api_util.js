@@ -119,10 +119,10 @@ return axios
     );
 };
 
-export const fetchToiletsInBounds = () => dispatch => {
-  debugger;
+export const fetchToiletsInBounds = (northEast, southWest) => dispatch => {
+  // debugger;
   return axios 
-    .get('api/toilets/bounds')
+    .post(`api/toilets/bounds`, {northEast, southWest})
     .then(res => {
       dispatch(ToiletActions.receiveToilets(res))
     })

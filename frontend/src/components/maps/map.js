@@ -28,16 +28,16 @@ class Map extends React.Component {
         this.markerManager = new MarkerManager(this.map, this.props.history);
         this.map.addListener('click', this.handleMapClick.bind(this));
         this.map.addListener('idle', this.handleIdleMap.bind(this));
-        fetchToilets()
-        .then(() => {
-            this.markerManager.createMarkers(this.props.toilets);
-            const toiletId = this.props.match.params.toiletId;
-            if (toiletId) {
-            const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
-            this.map.setZoom(17);
-            this.map.setCenter(pos);
-            }
-        });
+        // this.handleIdleMap()
+        // .then(() => {
+        //     this.markerManager.createMarkers(this.props.toilets);
+        //     const toiletId = this.props.match.params.toiletId;
+        //     if (toiletId) {
+        //     const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
+        //     this.map.setZoom(17);
+        //     this.map.setCenter(pos);
+        //     }
+        // });
     }
 
     componentWillReceiveProps(nextProps) {
@@ -54,7 +54,7 @@ class Map extends React.Component {
     }
 
     handleIdleMap() {
-        const {history, fetchToiletsInBounds} = this.props
+        const {fetchToiletsInBounds} = this.props
         const bounds = this.map.getBounds();
         const northEast = {
             lat: bounds.getNorthEast().lat(),
@@ -64,11 +64,16 @@ class Map extends React.Component {
             lat: bounds.getSouthWest().lat(),
             lng: bounds.getSouthWest().lng(),
         };
-        history.push({
-            search: `?northEast=${northEast.lat},${northEast.lng
-            }&southWest=${southWest.lat},${southWest.lng}`
-        })
-        fetchToiletsInBounds()
+        fetchToiletsInBounds(northEast, southWest)
+            .then(() => {
+                this.markerManager.createMarkers(this.props.toilets);
+                const toiletId = this.props.match.params.toiletId;
+                if (toiletId) {
+                    const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
+                    this.map.setZoom(17);
+                    this.map.setCenter(pos);
+                }
+            });
     }
 
     handleMapClick(event) {
@@ -96,7 +101,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     receiveToiletPos: pos => dispatch(receiveToiletPos(pos)),
     fetchToilets: () => dispatch(fetchToilets()),
-    fetchToiletsInBounds: () => dispatch(fetchToiletsInBounds())
+    fetchToiletsInBounds: (nE, sW) => dispatch(fetchToiletsInBounds(nE, sW))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Map));

@@ -20,13 +20,12 @@ router.get('/', (req,res) => {
   .catch(err => res.status(404).json({notoiletsfound: 'No toilets found'}))
 });
 
-router.get('/bounds/', (req,res) => {
+router.get('/bounds', (req, res) => {
     let result = {};
     let r = req;
     let url = require('url');
     let url_parts = url.parse(r.url, true);
     let query = url_parts.query;
-    debugger
   Toilet.find({
     lat: {$gt: query.northEast.lat, $lt: query.southWest.lat},
     lng: {$gt: query.northEast.lng, $lt: query.southWest.lng}
@@ -39,19 +38,6 @@ router.get('/bounds/', (req,res) => {
     })
   .catch(err => res.status(404).json({notoiletsfound: 'No toilets found'}))
 });
-
-// const bounds = this.map.getBounds();
-//         const northEast = {
-//             lat: bounds.getNorthEast().lat(),
-//             lng: bounds.getNorthEast().lng(),
-//         };
-//         const southWest = {
-//             lat: bounds.getSouthWest().lat(),
-//             lng: bounds.getSouthWest().lng(),
-//         };
-
-
-
 
 router.get("/:id", (req,res) => {
   Toilet.findById(req.params.id)

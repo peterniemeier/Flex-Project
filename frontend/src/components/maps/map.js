@@ -31,10 +31,12 @@ class Map extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { maps } = this.props;
+        const { maps, toilets, match} = this.props;
         const toiletId = nextProps.match.params.toiletId;
-        if (toiletId && toiletId !== this.props.match.params.toiletId) {
-            const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
+        if (toiletId && toiletId !== match.params.toiletId) {
+            const pos = { 
+                lat: toilets[toiletId].lat, 
+                lng: toilets[toiletId].lng };
             this.map.setZoom(17);
             this.map.setCenter(pos);
         }
@@ -56,13 +58,8 @@ class Map extends React.Component {
         };
         fetchToiletsInBounds(northEast, southWest)
         .then(() => {
+            this.markerManager.clearMarkers()
             this.markerManager.createMarkers(this.props.toilets);
-            const toiletId = this.props.match.params.toiletId;
-            if (toiletId) {
-                const pos = { lat: this.props.toilets[toiletId].lat, lng: this.props.toilets[toiletId].lng };
-                this.map.setZoom(17);
-                this.map.setCenter(pos);
-            }
         });
     }
 

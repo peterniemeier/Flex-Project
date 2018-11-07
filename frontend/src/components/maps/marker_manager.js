@@ -59,5 +59,12 @@ export default class MarkerManager {
             marker.setMap(null);
         }
     }
+
+    clearMarkers() {
+        this.markers.forEach(marker => {
+            marker.setMap(null)
+        })
+        this.markers = []
+    }
 }
 

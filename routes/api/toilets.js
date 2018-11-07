@@ -20,15 +20,17 @@ router.get('/', (req,res) => {
   .catch(err => res.status(404).json({notoiletsfound: 'No toilets found'}))
 });
 
-router.get('/bounds', (req, res) => {
+router.post('/bounds', (req, res) => {
     let result = {};
-    let r = req;
-    let url = require('url');
-    let url_parts = url.parse(r.url, true);
-    let query = url_parts.query;
+    // let r = req;
+    // let url = require('url');
+    // let url_parts = url.parse(r.url, true);
+    // let query = url_parts.query;
+    const northEast = req.body.northEast
+    const southWest = req.body.southWest
   Toilet.find({
-    lat: {$gt: query.northEast.lat, $lt: query.southWest.lat},
-    lng: {$gt: query.northEast.lng, $lt: query.southWest.lng}
+    lat: {$lt: northEast.lat, $gt: southWest.lat},
+    lng: {$lt: northEast.lng, $gt: southWest.lng}
   })
     .then(toilets => {
       toilets.map (toilet => {

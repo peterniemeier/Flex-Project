@@ -1,0 +1,11 @@
+.toilet-form-container {
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.toilet-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

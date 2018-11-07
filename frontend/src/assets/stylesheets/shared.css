@@ -107,13 +107,13 @@ body {
 }
 
 .input-text {
-  width: 220px;
-  height: 15px;
-  padding: 9px;
-  border: 1px solid #85929E;
-  border-radius: 4px;
-  font-family: Courier New, monospace;
-  font-size: 16px;
+    width: 220px;
+    height: 15px;
+    padding: 9px;
+    border: 1px solid #85929E;
+    border-radius: 4px;
+    font-family: Courier New, monospace;
+    font-size: 16px;
 }
 
 .input-text:focus {
@@ -122,6 +122,32 @@ body {
     background-color: rgb(218, 218, 218);
 }
 
+.input-style {
+    height: 15px;
+    padding: 9px;
+    border: 1px solid #85929E;
+    border-radius: 4px;
+    font-family: Courier New, monospace;
+    font-size: 16px;
+}
+
+.input-style:focus {
+    outline: none;
+    border: 1px solid #34495E;
+    background-color: rgb(218, 218, 218);
+}
+
+
 .m-6 {
     margin: 6px;
+}
+
+.w-300 {
+    width: 300px;
+}
+.w-400 {
+    width: 400px;
+}
+.w-500 {
+    width: 500px;
 }

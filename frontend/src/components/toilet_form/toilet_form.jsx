@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../assets/stylesheets/shared.css'
+import './toilet_form.css';
 
 class ToiletForm extends React.Component {
   constructor(props) {
@@ -13,6 +14,8 @@ class ToiletForm extends React.Component {
         comments: this.props.comments,
         date: new Date(),
       }
+    } else {
+      this.state = {}
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -31,21 +34,21 @@ class ToiletForm extends React.Component {
 
   render() {
     if (!this.props.creator) {
-      return <h2>You Must Log In to Create Toilets</h2>;
+      return <h2>You Must Sign In to Create Toilets</h2>;
     }
     this.state.creator = this.props.creator;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="toilet-form-container">
+        <form onSubmit={this.handleSubmit} className="toilet-form">
           <input
-            className="input-text"
+            className="input-style w-400"
             type="text"
             placeholder="Title of the Porcelain You're Sitting On"
             value={this.state.title}
             onChange={this.update('title')}
             />
           <input
-            className="btn btn-submit"
+            className="btn btn-submit w-300 m-6"
             type="submit"
             value={this.props.formType}
             />

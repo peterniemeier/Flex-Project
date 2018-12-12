@@ -23,9 +23,7 @@ export class NavBar extends Component {
           <Link to="/main" className="link-style">
             Toilets Near Me
           </Link>
-          <Link to="/best-toilets" className="link-style">
-            Best Toilets
-          </Link>
+
         </div>
         <div className="user-nav">
           <GreetingContainer />
